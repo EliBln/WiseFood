@@ -7,11 +7,7 @@ Rails.application.routes.draw do
   get 'user_recipes/new'
   get 'user_recipes/index'
   get 'user_recipes/destroy'
-  get 'products/new'
-  get 'products/show'
-  get 'products/index'
-  get 'products/create'
-  get 'products/destroy'
+  resources :products
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
