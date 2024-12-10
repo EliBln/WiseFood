@@ -1,1 +1,99 @@
-// Specific CSS for your home-page
+body {
+  margin: 0;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #fffde9;
+  width: 320px;
+  height: 640px;
+  border-radius: 40px;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+}
+
+.notch {
+  width: 120px;
+  height: 30px;
+  background-color: #000000;
+  border-radius: 15px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.easy-text {
+  font-family: 'Molle', cursive;
+  font-size: 28px;
+  color: #000;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+.easy-texte {
+  font-family: 'Molle', cursive;
+  color: #ff5e5e;
+  font-size: 32px;
+}
+
+.instructions {
+  text-align: left;
+  width: 80%;
+  margin: 40px auto;
+}
+
+.itim-text {
+  font-family: 'Itim', cursive;
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.itim-text::before {
+  content: "•";
+  margin-right: 10px;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  width: 80px;
+  height: 80px;
+  background-color: #ff5e5e;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(255, 94, 94, 0.4);
+  margin-bottom: 15px;
+}
+
+.button svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+
+.start-text {
+  font-family: 'Itim', cursive;
+  font-size: 18px;
+  color: #000;
+  margin-top: 10px;
+}
