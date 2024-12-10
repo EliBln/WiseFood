@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.includes(:categorie).all
+    @products = Product.all.order(:expiration_date)
   end
 
   def create
