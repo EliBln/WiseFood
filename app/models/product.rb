@@ -5,4 +5,12 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :expiration_date, presence: true
   validates :quantity_stock, numericality: { greater_than_or_equal_to: 0 }
+
+  def days_remaining
+    return 0 if expiration_date.nil?
+
+    days = (expiration_date.to_date - Date.current).to_i
+    [days, 0].max  # Retourne 0 si la date est dépassée
+  end
+  
 end

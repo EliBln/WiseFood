@@ -1,0 +1,32 @@
+<%# app/views/products/edit.html.erb %>
+<div class="edit-product-container">
+  <%= link_to product_path(@product), class: "back-button" do %>
+    <div class="back-icon"></div>
+  <% end %>
+
+  <h1 class="product-title">Modifier <%= @product.name %></h1>
+
+  <%= form_with(model: @product, class: "edit-form") do |f| %>
+    <div class="form-group">
+      <%= f.label :name, "Nom du produit" %>
+      <%= f.text_field :name, class: "form-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :quantity_stock, "Jours restants" %>
+      <%= f.number_field :quantity_stock, class: "form-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :expiration_date, "Date de péremption" %>
+      <%= f.date_field :expiration_date, class: "form-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :categorie_id, "Catégorie" %>
+      <%= f.collection_select :categorie_id, Categorie.all, :id, :name, {}, class: "form-select" %>
+    </div>
+
+    <%= f.submit "Save !", class: "save-button" %>
+  <% end %>
+</div>

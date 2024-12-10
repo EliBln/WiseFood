@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @categorie = @product.categorie
+    @days_remaining = @product.days_remaining
   end
 
   def index
@@ -24,10 +26,24 @@ class ProductsController < ApplicationController
     end
   end
 
-    def update
-       @product.update(product_params)
-        redirect_to @product, notice: 'Produit mis à jour avec succès!'
+  def edit
+    @product = Product.find(params[:id])
+    @categories = Categorie.all  # Ajouter cette ligne pour avoir accès aux catégories dans le formulaire
+
+    # unless @product.user == current_user
+    #   redirect_to products_path, alert: "Vous n'êtes pas autorisé à modifier ce produit"
+    #   return
+    # end
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to product_path(@product), notice: 'Produit mis à jour avec succès!'
+    else
+      @categories = Categorie.all  # Ajouter cette ligne pour réafficher le formulaire en cas d'erreur
+      render :edit
     end
+  end
 
   def destroy
    if @product.destroy

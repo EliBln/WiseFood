@@ -8,3 +8,11 @@ $orange: #E67E22;
 $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
+
+// app/assets/stylesheets/config/_colors.scss
+:root {
+  --background-color: #FFFBE9;
+  --edit-button-color: #FF6B6B;
+  --card-background: rgba(255, 255, 255, 0.8);
+  --text-color: #333333;
+}
