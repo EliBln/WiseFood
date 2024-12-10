@@ -47,4 +47,3 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :expiration_date, :categorie_id, :quantity_stock, :user_id)
   end
 end
-
