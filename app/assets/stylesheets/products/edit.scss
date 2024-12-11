@@ -16,7 +16,7 @@
 }
 
 .product-title {
-  font-family: 'Cursive', serif;
+  font-family: 'Itim', cursive;
   font-size: 28px;
   // font-style: italic;
   text-align: center;
@@ -32,7 +32,7 @@
     border-radius: 15px;
     padding: 15px;
     margin-bottom: 0px;
-    font-family: 'Cursive', serif;
+    font-family: 'Itim', cursive;
 
     label {
       background: #FFFDE9;
@@ -42,7 +42,7 @@
       box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1),
               inset -2px -2px 5px rgba(255, 255, 255, 0.8);
       display: block;
-      font-family: 'Cursive', serif;
+      font-family: 'Itim', cursive;
     }
 
     .form-input,
@@ -54,7 +54,7 @@
       box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1),
                   inset -2px -2px 5px rgba(255, 255, 255, 0.8);
       background: #FFFDE9;
-      font-family: 'Cursive', serif;
+      font-family: 'Itim', cursive;
     }
   }
 }

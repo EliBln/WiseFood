@@ -1,4 +1,32 @@
 <div class="container">
+  <div class="notch"></div>
+
+  <div class="shelf-container">
+    <% @products.each_slice(3) do |shelf_products| %>
+      <div class="shelf">
+        <div class="items-row">
+          <% shelf_products.each do |product| %>
+            <%= link_to product_path(product), class: "item" do %>
+              <div class="days"><%= product.days_remaining %>j</div>
+              <div class="name"><%= product.name %></div>
+              <div class="icon">
+                <img src="<%= product.categorie.img_url %>" alt="<%= product.categorie.name %>">
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="shelf-table">
+          <div class="trapeze"></div>
+          <div class="bottom"></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<%# <div class="container">
 
   <div class="notch"></div>
 
@@ -200,4 +228,4 @@
     </svg>
   </div>
   </nav>
-</div>
+</div> %>
