@@ -1,0 +1,19 @@
+.play-icon {
+  width: 24px;
+  height: 24px;
+  fill: #000000; /* Couleur de l'icône */
+}
+
+.play-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.play-button:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
