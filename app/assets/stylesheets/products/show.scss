@@ -1,44 +1,30 @@
 // app/assets/stylesheets/products/show.scss
-@font-face {
-  font-family: 'Cursive Custom';
-  src: url('path_to_your_cursive_font.woff2') format('woff2');
-  font-weight: strong;
-}
-
-.product-show-container {
-  background-color: #FFFBE9;
-  min-height: 100vh;
-  padding: 20px;
+.containers {
+  background-color: #FFFDE9;
+  width: 320px;
+  height: 640px;
+  border-radius: 40px;
   position: relative;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.back-button {
-  position: absolute;
-  top: 32px;
-  left: 20px;
-
-  .back-icon {
-    width: 24px;
-    height: 24px;
-    background-image: url('back-arrow.svg');
-    background-size: contain;
-  }
+  gap: 20px;
 }
 
 .product-title {
-  font-family: 'Cursive Custom', cursive;
-  font-size: 32px;
-  margin: 60px 0 40px;
+  font-family: 'Cursive', serif;
+  font-size: 28px;
+  // font-style: italic;
   text-align: center;
+  margin: 20px 0 40px;
+  width: 100%;
 }
 
 .product-image {
   width: 120px;
   height: 120px;
-  margin: 20px auto;
+  margin-bottom: 10px;
 
   img {
     width: 100%;
@@ -48,40 +34,51 @@
 }
 
 .days-remaining {
-  background: #FFFFFF;
-  border-radius: 15px;
-  padding: 10px 20px;
-  margin: 20px 0;
+  width: 25%;
+  padding: 15px;
+  background: #FFFDE9;
+  border-radius: 20px;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+              inset -2px -2px 5px rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin: 15px 0;
 
   .days {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 600;
+    color: #333;
+    font-family: 'Cursive', serif;
   }
 }
 
 .expiration-card {
-  background: #FFFFFF;
-  border-radius: 15px;
-  padding: 15px 25px;
-  margin: 10px 0;
-  width: 80%;
+  width: 85%;
+  padding: 20px;
+  background: #FFFDE9;
+  border-radius: 20px;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+              inset -2px -2px 5px rgba(255, 255, 255, 0.8);
   text-align: center;
 
   .expiration-label {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 5px;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Cursive', serif;
+    font-weight: 400;
   }
 
   .expiration-date {
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    font-family: 'Cursive', serif;
   }
 }
 
 .edit-button {
-  position: fixed;
-  bottom: 80px;
+  position: absolute;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   width: 60px;
@@ -91,12 +88,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
 
-  .edit-icon {
+  &::before {
+    content: '';
     width: 24px;
     height: 24px;
-    background-image: url('edit-icon.svg');
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325'/%3E%3C/svg%3E") no-repeat center;
     background-size: contain;
   }
 }

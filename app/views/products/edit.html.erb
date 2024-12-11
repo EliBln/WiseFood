@@ -1,9 +1,4 @@
-<%# app/views/products/edit.html.erb %>
-<div class="edit-product-container">
-  <%= link_to product_path(@product), class: "back-button" do %>
-    <div class="back-icon"></div>
-  <% end %>
-
+<div class="containers">
   <h1 class="product-title">Modifier <%= @product.name %></h1>
 
   <%= form_with(model: @product, class: "edit-form") do |f| %>
@@ -13,8 +8,8 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :quantity_stock, "Jours restants" %>
-      <%= f.number_field :quantity_stock, class: "form-input" %>
+      <%= f.label :days_remaining, "Jours restants" %>
+      <%= f.number_field :days_remaining, class: "form-input" %>
     </div>
 
     <div class="form-group">
@@ -27,6 +22,8 @@
       <%= f.collection_select :categorie_id, Categorie.all, :id, :name, {}, class: "form-select" %>
     </div>
 
-    <%= f.submit "Save !", class: "save-button" %>
-  <% end %>
+<%= f.button type: "submit", class: "save-button" do %>
+  <%= inline_svg_tag "check.svg", class: "check-icon" %>
+<% end %>
+<% end %>
 </div>
