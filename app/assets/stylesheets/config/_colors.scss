@@ -16,3 +16,14 @@ $light-gray: #F4F4F4;
   --card-background: rgba(255, 255, 255, 0.8);
   --text-color: #333333;
 }
+
+// Custom background colors for expiration dates
+.bg-warning-soft {
+  background-color: #FF9C73 !important; // Using the same color as your shelf
+  color: #333 !important;
+}
+
+.bg-danger {
+  background-color: #FF4545 !important; // Using your edit-button-color for consistency
+  color: #333 !important;
+}
