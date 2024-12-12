@@ -1,9 +1,17 @@
+require "openfoodfacts"
+
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
   def new
-      @product = Product.new
-      @categories = Categorie.all
+    @product = Product.new
+    @categories = Categorie.all
+    @barcode = params[:barcode]
+
+    if @barcode.present?
+      @foodfactproduct = Openfoodfacts::Product.get(@barcode, locale: "fr")
+      @name = @foodfactproduct.product_name
+    end
   end
 
   def show
@@ -20,7 +28,7 @@ class ProductsController < ApplicationController
     @product.user = current_user
 
     if @product.save
-      redirect_to @product, notice: 'Produit créé avec succès!'
+      redirect_to @product, notice: "Produit créé avec succès!"
     else
       render :new
     end
@@ -38,7 +46,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to product_path(@product), notice: 'Produit mis à jour avec succès!'
+      redirect_to product_path(@product), notice: "Produit mis à jour avec succès!"
     else
       @categories = Categorie.all  # Ajouter cette ligne pour réafficher le formulaire en cas d'erreur
       render :edit
@@ -46,11 +54,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-   if @product.destroy
-    redirect_to products_path, notice: 'Produit supprimé avec succès!'
-   else
-    redirect_to products_path, alert: 'Erreur lors de la suppression du produit'
-   end
+    if @product.destroy
+      redirect_to products_path, notice: "Produit supprimé avec succès!"
+    else
+      redirect_to products_path, alert: "Erreur lors de la suppression du produit"
+    end
   end
 
   private

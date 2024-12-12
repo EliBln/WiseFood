@@ -1,17 +1,42 @@
-<h1>Demo - Native camera in browsers</h1>
-
-    <!-- The `label` is attached to the hidden file input -->
-    <label for="cameraFileInput">
-      <span class="btn">Open camera</span>
-
-      <!-- The hidden file `input` for opening the native camera -->
-      <input
-        id="cameraFileInput"
-        type="file"
-        accept="image/*"
-        capture="environment"
-      />
-    </label>
-
-    <!-- displays the picture uploaded from the native camera -->
-    <img id="pictureFromCamera" />
+<%# fais moi un formlaire pour ajouter un produit avec une Categorie qui est dnas la db et en utilisant le schema %>
+<div class="container mt-4" data-controller="product">
+  <h2>Ajouter un nouveau produit</h2>
+  <%= form_with(model: @product, local: true) do |f| %>
+    <% if @product.errors.any? %>
+      <div class="alert alert-danger">
+        <h4><%= pluralize(@product.errors.count, "erreur") %> :</h4>
+        <ul>
+          <% @product.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group mb-3">
+      <%= f.label :name, "Nom du produit" %>
+      <%= f.text_field :name, value: @name, class: "form-control" %>
+    </div>
+    <div class="form-group mb-3">
+      <%= f.label :quantity_stock, "Quantité en stock" %>
+      <%= f.number_field :quantity_stock, class: "form-control" %>
+    </div>
+    <div class="form-group mb-3">
+      <%= f.label :expiration_date, "Date d'expiration" %>
+      <%= f.date_field :expiration_date, class: "form-control" %>
+    </div>
+    <div class="form-group mb-3">
+      <%= f.label :categorie_id, "Catégorie" %>
+      <%= f.collection_select :categorie_id,
+                            Categorie.all,
+                            :id,
+                            :name,
+                            { prompt: "Choisissez une catégorie" },
+                            { class: "form-select" } %>
+    </div>
+    <div class="mt-4">
+      <%= f.submit "Ajouter le produit", class: "btn btn-primary" %>
+      <%= link_to "Scan du code Barre", camera_path, class: "btn btn-primary"%>
+      <%= link_to "Retour", products_path, class: "btn btn-secondary ms-2" %>
+    </div>
+  <% end %>
+</div>

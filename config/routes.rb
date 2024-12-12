@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  get 'recipes/show'
-  get 'recipes/index'
-  get 'recipes/create'
-  get 'recipes/new'
-  get 'user_recipes/create'
-  get 'user_recipes/new'
-  get 'user_recipes/index'
-  get 'user_recipes/destroy'
+  get "recipes/show"
+  get "recipes/index"
+  get "recipes/create"
+  get "recipes/new"
+  get "user_recipes/create"
+  get "user_recipes/new"
+  get "user_recipes/index"
+  get "user_recipes/destroy"
+  get "camera" => "products#camera"
   resources :products
   devise_for :users
   root to: "pages#home"
