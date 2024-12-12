@@ -1,26 +1,33 @@
-<%# app/views/products/show.html.erb %>
-<div class="product-show-container">
-  <%= link_to products_path, class: "back-button" do %>
-    <div class="back-icon"></div>
-  <% end %>
+<div class="containers">
+
+
+<div class="notch"></div>
+
+<div class="upper-buttons">
+  <div class="back-button">
+    <%= link_to products_path do %>
+      <%= image_tag 'button.svg', alt: 'Retour', class: 'svg-icon' %>
+    <% end %>
+  </div>
+</div>
 
   <h1 class="product-title"><%= @product.name.capitalize %></h1>
+
 
   <div class="product-image">
     <%= image_tag @product.categorie.img_url if @product.categorie.img_url.present? %>
   </div>
 
-<div class="days-remaining">
-  <span class="days"><%= @product.days_remaining %>j</span>
-</div>
+  <div class="days-remaining">
+    <span class="days"><%= @product.days_remaining %>j</span>
+  </div>
 
   <div class="expiration-card">
     <p class="expiration-label">Date de péremption</p>
     <p class="expiration-date"><%= @product.expiration_date.strftime("%d/%m/%Y") %></p>
   </div>
-  </div>
 
-  <%= link_to edit_product_path(@product), class: "edit-button" do %>
-    <div class="edit-icon"></div>
-  <% end %>
+<%= link_to edit_product_path(@product), class: "edit-button" do %>
+  <%= inline_svg_tag "edit.svg", class: "edit-icon" %>
+<% end %>
 </div>
