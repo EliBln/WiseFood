@@ -26,6 +26,7 @@ user = User.create!(
 categorie = Categorie.create!(
   name: "fromage",
   img_url: "https://cdn-icons-png.flaticon.com/128/1303/1303977.png"
+
 )
 
 # Create product with associations
