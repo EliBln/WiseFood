@@ -16,14 +16,16 @@
              <li class="itim-text">Scan ton produit</li>
              <li class="itim-text">Consulte tes recettes</li>
         </ul>
-        <div class="button-container">
-            <div class="button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
-                    <path d="M8.5,6.5v11l9-5.5L8.5,6.5z" />
-                </svg>
-            </div>
-            <div class="start-text">C'est parti !</div>
-        </div>
+     <%= link_to products_path do %>
+  <div class="button-container">
+    <div class="button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M8.5,6.5v11l9-5.5L8.5,6.5z" />
+      </svg>
     </div>
+    <div class="start-text">C'est parti !</div>
+  </div>
+<% end %>
+</div>
 </body>
 </html>
