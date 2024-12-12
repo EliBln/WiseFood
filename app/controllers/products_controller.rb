@@ -1,6 +1,12 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
+  def scan
+    scanned_product = Product.find(params[:id]) # Trouver le produit scanné par son ID
+    @products = Product.all.to_a # Charger tous les produits dans un tableau
+    @products.unshift(scanned_product) # Ajouter le produit scanné au début
+  end
+
   def new
       @product = Product.new
       @categories = Categorie.all
@@ -14,6 +20,8 @@ class ProductsController < ApplicationController
   def index
     @products = Product.includes(:categorie).all
     @products = Product.all.order(:expiration_date)
+    @shelves = @products.each_slice(3).to_a
+    @categories = Categorie.all
   end
 
   def create

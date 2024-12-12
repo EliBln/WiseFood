@@ -12,5 +12,5 @@ class Product < ApplicationRecord
     days = (expiration_date.to_date - Date.current).to_i
     [days, 0].max  # Retourne 0 si la date est dépassée
   end
-  
+
 end
