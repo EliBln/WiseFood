@@ -55,7 +55,7 @@ body {
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       width: 100%;
       z-index: 2;
       margin-bottom: -70px;
@@ -98,10 +98,17 @@ body {
 }
 
 .item {
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 33%;
+  cursor: pointer;
+
+    &.hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+  }
 
   .days {
     background-color: #fff;

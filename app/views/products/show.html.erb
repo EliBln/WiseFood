@@ -1,5 +1,5 @@
 <div class="containers">
-  <h1 class="product-title"><%= @product.name %></h1>
+  <h1 class="product-title"><%= @product.name.capitalize %></h1>
 
   <div class="product-image">
     <%= image_tag @product.categorie.img_url if @product.categorie.img_url.present? %>
