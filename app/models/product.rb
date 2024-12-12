@@ -13,4 +13,14 @@ class Product < ApplicationRecord
     [days, 0].max  # Retourne 0 si la date est dépassée
   end
 
+  def expiration_color
+    days = days_remaining
+    if days <= 3
+      'bg-danger'
+    elsif days <= 5
+      'bg-warning-soft' 
+    else
+      ''
+    end
+  end
 end
