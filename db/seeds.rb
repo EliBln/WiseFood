@@ -14,6 +14,7 @@ puts "Creating categories..."
 fromage = Categorie.create!(
   name: "Fromage",
   img_url: "https://cdn-icons-png.flaticon.com/128/1303/1303977.png"
+
 )
 
 viande = Categorie.create!(

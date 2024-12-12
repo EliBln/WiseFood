@@ -1,5 +1,18 @@
 <div class="containers">
+
+
+<div class="notch"></div>
+
+<div class="upper-buttons">
+  <div class="back-button">
+    <%= link_to products_path do %>
+      <%= image_tag 'button.svg', alt: 'Retour', class: 'svg-icon' %>
+    <% end %>
+  </div>
+</div>
+
   <h1 class="product-title"><%= @product.name.capitalize %></h1>
+
 
   <div class="product-image">
     <%= image_tag @product.categorie.img_url if @product.categorie.img_url.present? %>
