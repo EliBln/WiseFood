@@ -18,7 +18,7 @@ class Product < ApplicationRecord
     if days <= 3
       'bg-danger'
     elsif days <= 5
-      'bg-warning-soft' 
+      'bg-warning-soft'
     else
       ''
     end
