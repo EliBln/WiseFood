@@ -16,7 +16,10 @@
     background: rgba(0, 0, 0, 0);
     border-radius: 3px;
   }
-
+  // responsive mobile
+  @media (max-width: 576px) {
+    padding: 10px;
+  }
   .shelf {
     // position: relative;
     margin-bottom: -30px; /* Ajoute un espace entre chaque étagère */
