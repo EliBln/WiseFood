@@ -17,3 +17,8 @@
 <%= link_to edit_product_path(@product), class: "edit-button" do %>
   <%= inline_svg_tag "edit.svg", class: "edit-icon" %>
 <% end %>
+<%= link_to product_path(@product),
+    class: "trash-button",
+    data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce produit ?" } do %>
+  <%= inline_svg_tag "trash.svg", class: "trash-icon" %>
+<% end %>

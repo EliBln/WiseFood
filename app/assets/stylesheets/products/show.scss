@@ -82,3 +82,20 @@
     background-size: contain;
   }
 }
+
+.trash-button {
+  position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    // réduit la taille de limage de la corbeille
+    svg {
+      width: 70px;
+      height: 70px;
+    }
+}
