@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
 
     if @barcode.present?
       @foodfactproduct = Openfoodfacts::Product.get(@barcode, locale: "fr")
-      @name = @foodfactproduct&.product_name
+      @name = @foodfactproduct&.product_name&.truncate(18, omission: "...")
       @categorie = @foodfactproduct&.categories
 
       if @foodfactproduct&.categories
