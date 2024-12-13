@@ -1,11 +1,10 @@
 <%# fais moi un formlaire pour ajouter un produit avec une Categorie qui est dnas la db et en utilisant le schema %>
-<div class ="containerss">
-<div class="notch"></div>
-<div class="back-button">
+<div class="new mt-4" data-controller="product">
+  <div class="back-button">
     <%= link_to products_path do %>
       <%= image_tag 'button.svg', alt: 'Retour', class: 'svg-icon' %>
     <% end %>
-<div class="container mt-4" data-controller="product">
+  </div>
   <h2>Ajouter un nouveau produit</h2>
   <%= form_with(model: @product, local: true) do |f| %>
     <% if @product.errors.any? %>
@@ -44,10 +43,8 @@
       <%= f.submit "Ajouter le produit", class: "btn btn-primary" %>
       <%= link_to "Scan du code Barre", camera_path, class: "btn btn-primary"%>
       <div class="back-button">
-      <%# <%= link_to "Retour", products_path, class: "btn btn-secondary ms-2" %>
-    </div>
-  <% end %>
+        <%# <%= link_to "Retour", products_path, class: "btn btn-secondary ms-2" %>
+      </div>
+    <% end %>
   </div>
-</div>
-</div>
 </div>
