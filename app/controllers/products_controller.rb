@@ -16,7 +16,15 @@ class ProductsController < ApplicationController
 
     if @barcode.present?
       @foodfactproduct = Openfoodfacts::Product.get(@barcode, locale: "fr")
-      @name = @foodfactproduct.product_name
+      @name = @foodfactproduct&.product_name
+      @categorie = @foodfactproduct&.categories
+
+      if @foodfactproduct&.categories
+        @food_categories = @foodfactproduct.categories.downcase.split(",")
+        @matched_category = Categorie.all.find do |cat|
+          @food_categories.any? { |food_cat| food_cat.include?(cat.name.downcase) }
+        end
+      end
     end
   end
 

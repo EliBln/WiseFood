@@ -37,6 +37,16 @@ volaille = Categorie.create!(
   img_url: "https://cdn-icons-png.flaticon.com/128/3143/3143626.png"
 )
 
+bonbon = Categorie.create!(
+  name: "Bonbon",
+  img_url: "https://cdn-icons-png.flaticon.com/128/2575/2575864.png"
+)
+
+boisson = Categorie.create!(
+  name: "Boisson",
+  img_url: "https://cdn-icons-png.flaticon.com/128/824/824239.png"
+)
+
 puts "Creating products..."
 products_data = [
   { name: "Camembert", expiration_date: "2024-12-17", categorie: fromage, quantity_stock: 1 },
