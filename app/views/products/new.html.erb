@@ -28,10 +28,11 @@
       <%= f.label :categorie_id, "Catégorie" %>
       <%= f.collection_select :categorie_id,
                             Categorie.all,
-                            :id,
-                            :name,
-                            { prompt: "Choisissez une catégorie" },
-                            { class: "form-select" } %>
+                         :id,
+                         :name,
+                         { prompt: "Sélectionnez une catégorie",
+                           selected: @matched_category&.id },
+                         { class: "form-select" } %>
     </div>
     <div class="mt-4">
       <%= f.submit "Ajouter le produit", class: "btn btn-primary" %>

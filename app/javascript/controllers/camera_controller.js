@@ -24,7 +24,6 @@ export default class extends Controller {
       // el.formats.innerHTML = supportedFormats.join(', ')
       detector = new BarcodeDetectorPolyfill({ formats: ['codabar', 'code_39', 'code_93', 'code_128', 'databar', 'databar_exp', 'ean_2', 'ean_5', 'ean_8', 'ean_13', 'ean_13+2', 'ean_13+5', 'isbn_10', 'isbn_13', 'isbn_13+2', 'isbn_13+5', 'itf', 'qr_code', 'sq_code', 'upc_a', 'upc_e'], zbar: { encoding: 'UTF-8' } })
     }
-
     function detect(source) {
       return detector
         .detect(source)
@@ -41,14 +40,15 @@ export default class extends Controller {
             ctx.strokeStyle = '#00e000ff'
             ctx.stroke()
           })
-          symbols.forEach(symbol => {
+          for (const symbol of symbols) {
             delete symbol.boundingBox
             delete symbol.cornerPoints
             const barcode = symbol.rawValue
             if (barcode.length > 0) {
               handleBarcode(barcode);
+              break
             }
-          })
+          }
         })
     }
 
