@@ -3,20 +3,30 @@
     <%= image_tag 'button.svg', alt: 'Retour', class: 'svg-icon' %>
   <% end %>
 </div>
+
 <h1 class="product-title"><%= @product.name.capitalize %></h1>
+
 <div class="product-image">
   <%= image_tag @product.categorie.img_url if @product.categorie.img_url.present? %>
 </div>
+
 <div class="days-remaining">
-  <span class="days"><%= @product.days_remaining %>j</span>
+  <% if @product.expired? %>
+    <%= image_tag 'death (2).png', alt: 'Produit périmé', class: 'skull-icon' %>
+  <% else %>
+    <span class="days"><%= @product.days_remaining %>j</span>
+  <% end %>
 </div>
+
 <div class="expiration-card">
   <p class="expiration-label">Date de péremption</p>
   <p class="expiration-date"><%= @product.expiration_date.strftime("%d/%m/%Y") %></p>
 </div>
+
 <%= link_to edit_product_path(@product), class: "edit-button" do %>
   <%= inline_svg_tag "edit.svg", class: "edit-icon" %>
 <% end %>
+
 <%= link_to product_path(@product),
     class: "trash-button",
     data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce produit ?" } do %>
