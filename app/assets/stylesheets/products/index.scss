@@ -115,6 +115,13 @@
       color: #ff5252;
     }
 
+    .skull-icon {
+      width: 16px;
+      height: 16px;
+      fill: #FF6B6B; // Using your danger color
+      vertical-align: middle;
+      margin-top: -2px; // Slight adjustment to align with text
+    }
   }
 
   .name {
