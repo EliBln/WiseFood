@@ -9,7 +9,7 @@
             <%= link_to product_path(product), class: "item" do %>
               <div class="days <%= product.expiration_color %>">
                 <% if product.expired? %>
-                   <%= image_tag 'skull.svg', alt: 'Retour', class: 'skull-icon' %>
+                   <%= image_tag 'death (2).png', alt: 'Retour', class: 'skull-icon' %>
                 <% else %>
                   <%= product.days_remaining %>j
                 <% end %>
