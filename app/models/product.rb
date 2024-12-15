@@ -16,11 +16,15 @@ class Product < ApplicationRecord
   def expiration_color
     days = days_remaining
     if days <= 3
-      'bg-danger'
+      'bg-dangerx'  # Rouge pour 3 jours ou moins
     elsif days <= 5
-      'bg-warning-soft'
+      'bg-warning-soft' # Orange doux pour 4-5 jours
     else
-      ''
+      '' # Blanc (pas de classe) pour plus de 5 jours
     end
+  end
+
+  def expired?
+    days_remaining == 0
   end
 end
