@@ -2,7 +2,7 @@ require "openfoodfacts"
 
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
-
+  before_action :authenticate_user!
   # def scan
   #   scanned_product = Product.find(params[:id]) # Trouver le produit scanné par son ID
   #   @products = Product.all.to_a # Charger tous les produits dans un tableau
@@ -34,8 +34,9 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.includes(:categorie).all
-    @products = Product.all.order(:expiration_date)
+    @products = Product.where(user_id: current_user)
+    # @products = Product.includes(:categorie).all
+    # @products = Product.all.order(:expiration_date)
     @shelves = @products.each_slice(3).to_a
     @categories = Categorie.all
   end

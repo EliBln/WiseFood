@@ -88,7 +88,7 @@ products_data.each do |product_data|
     expiration_date: product_data[:expiration_date],
     categorie: product_data[:categorie],
     quantity_stock: product_data[:quantity_stock],
-    user: user1
+    user_id: user1.id
   )
 end
 
