@@ -1,2 +1,3 @@
-<h1>Recipes#new</h1>
-<p>Find me in app/views/recipes/new.html.erb</p>
+<h1><%= @recipe.name %></h1>
+<p><%= @recipe.detail%></p>
+<%= cl_image_tag(@recipe.photo.key) if @recipe.photo.attached? %>
