@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "user_recipes/destroy"
   get "camera" => "products#camera"
   resources :products
+  resources :user_recipes, only: [:index, :destroy]
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
