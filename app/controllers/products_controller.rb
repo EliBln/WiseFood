@@ -3,6 +3,7 @@ require "openfoodfacts"
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
+
   def reorder
     Rails.logger.info "Reorder params received: #{params.inspect}"
     
@@ -26,6 +27,10 @@ class ProductsController < ApplicationController
       render json: { error: e.message }, status: :internal_server_error
     end
   end
+
+
+  before_action :authenticate_user!
+  
 
   def new
     @product = Product.new
