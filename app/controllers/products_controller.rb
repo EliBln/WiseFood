@@ -35,8 +35,8 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.where(user_id: current_user)
-    # @products = Product.includes(:categorie).all
-    # @products = Product.all.order(:expiration_date)
+     @products = Product.includes(:categorie).all
+     @products = Product.all.order(:expiration_date)
     @shelves = @products.each_slice(3).to_a
     @categories = Categorie.all
   end
