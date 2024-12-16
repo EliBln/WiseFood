@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "camera" => "products#camera"
   resources :products
   devise_for :users
+  resources :recipes, only: [:show]
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
