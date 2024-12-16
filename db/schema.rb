@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_16_093400) do
     t.date "expiration_date"
     t.string "quantity_stock"
     t.bigint "user_id", null: false
+    t.integer "position"
     t.index ["categorie_id"], name: "index_products_on_categorie_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -43,10 +44,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_16_093400) do
 
   create_table "user_recipes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "recipe_id", null: false
+    t.bigint "recipes_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipe_id"], name: "index_user_recipes_on_recipe_id"
+    t.index ["recipes_id"], name: "index_user_recipes_on_recipes_id"
     t.index ["user_id"], name: "index_user_recipes_on_user_id"
   end
 
@@ -64,6 +65,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_16_093400) do
 
   add_foreign_key "products", "categories", column: "categorie_id"
   add_foreign_key "products", "users"
-  add_foreign_key "user_recipes", "recipes"
+  add_foreign_key "user_recipes", "recipes", column: "recipes_id"
   add_foreign_key "user_recipes", "users"
 end
