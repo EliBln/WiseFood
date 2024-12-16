@@ -9,7 +9,7 @@
             <%= link_to product_path(product), class: "item" do %>
               <div class="days <%= product.expiration_color %>">
                 <% if product.expired? %>
-                  <%= image_tag 'death (2).png', alt: 'Retour', class: 'skull-icon' %>
+                   <%= image_tag 'death (2).png', alt: 'Retour', class: 'skull-icon' %>
                 <% else %>
                   <%= product.days_remaining %>j
                 <% end %>
@@ -17,30 +17,6 @@
               <div class="name"><%= product.name %></div>
               <div class="icon">
                 <img src="<%= product.categorie.img_url %>" alt="<%= product.categorie.name %>">
-<div class="shelf-container" data-controller="drag">
-  <% total_shelves = [@products.length.fdiv(3).ceil, 9].max %>
-  <% total_shelves.times do |shelf_index| %>
-    <div class="shelf" data-drag-target="shelf">
-      <div class="shelf-table">
-        <div class="items-row">
-          <% shelf_products = @products[shelf_index * 3, 3] %>
-          <% shelf_products&.each do |product| %>
-            <%= link_to product_path(product), class: "item-link no-underline" do %>
-              <div class="item"
-                   data-id="<%= product.id %>"
-                   draggable="true"
-                   data-action="dragstart->drag#start dragover->drag#over dragend->drag#end">
-                <div class="days <%= product.expiration_color %>">
-                  <% if product.expired? %>
-                     <%= image_tag 'skull.svg', alt: 'Retour', class: 'skull-icon' %>
-                  <% else %>
-                    <%= product.days_remaining %>j
-                  <% end %>
-                </div>
-                <div class="name"><%= product.name %></div>
-                <div class="icon">
-                  <img src="<%= product.categorie.img_url %>" alt="<%= product.categorie.name %>" draggable="false">
-                </div>
               </div>
             <% end %>
           <% end %>
@@ -53,11 +29,9 @@
 </div>
 <nav class="bottom-nav">
   <div class="nav-item">
-    <%= link_to recipes_new_path, class: "no-underline" do %>
-      <svg viewBox="0 0 24 24">
-        <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>
-      </svg>
-    <% end %>
+    <svg viewBox="0 0 24 24">
+      <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>
+    </svg>
   </div>
   <%= link_to new_product_path, class: "no-underline" do %>
     <div class="add-button">+</div>
@@ -71,7 +45,6 @@
           <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
         </svg>
       <% end %>
-    </div>
-  <% end %>
-
+    <% end %>
+  </div>
 </nav>
