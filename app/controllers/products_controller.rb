@@ -2,35 +2,12 @@ require "openfoodfacts"
 
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
-
-
-  def reorder
-    Rails.logger.info "Reorder params received: #{params.inspect}"
-    
-    if params[:order].blank?
-      Rails.logger.error "No order parameter received"
-      return render json: { error: "No order parameter received" }, status: :bad_request
-    end
-
-    begin
-      ActiveRecord::Base.transaction do
-        params[:order].each_with_index do |id, index|
-          Rails.logger.info "Updating product #{id} to position #{index + 1}"
-          Product.where(id: id).update_all(position: index + 1)
-        end
-      end
-      
-      Rails.logger.info "Reorder successful"
-      render json: { success: true }
-    rescue => e
-      Rails.logger.error "Error during reorder: #{e.message}"
-      render json: { error: e.message }, status: :internal_server_error
-    end
-  end
-
-
   before_action :authenticate_user!
-  
+  # def scan
+  #   scanned_product = Product.find(params[:id]) # Trouver le produit scanné par son ID
+  #   @products = Product.all.to_a # Charger tous les produits dans un tableau
+  #   @products.unshift(scanned_product) # Ajouter le produit scanné au début
+  # end
 
   def new
     @product = Product.new
@@ -57,7 +34,9 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.includes(:categorie).order(:position)
+    @products = Product.where(user_id: current_user)
+     @products = Product.includes(:categorie).all
+     @products = Product.all.order(:expiration_date)
     @shelves = @products.each_slice(3).to_a
     @categories = Categorie.all
   end
