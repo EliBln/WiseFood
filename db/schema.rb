@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_16_114355) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_16_143524) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,10 +72,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_16_114355) do
 
   create_table "user_recipes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "recipes_id", null: false
+    t.bigint "recipe_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipes_id"], name: "index_user_recipes_on_recipes_id"
+    t.index ["recipe_id"], name: "index_user_recipes_on_recipe_id"
     t.index ["user_id"], name: "index_user_recipes_on_user_id"
   end
 
@@ -95,6 +95,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_16_114355) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "products", "categories", column: "categorie_id"
   add_foreign_key "products", "users"
-  add_foreign_key "user_recipes", "recipes", column: "recipes_id"
+  add_foreign_key "user_recipes", "recipes"
   add_foreign_key "user_recipes", "users"
 end
