@@ -6,10 +6,6 @@ class Product < ApplicationRecord
   validates :expiration_date, presence: true
   validates :quantity_stock, numericality: { greater_than_or_equal_to: 0 }
 
-  default_scope { order(:position) }
-  before_create :set_default_position
-
-
   def days_remaining
     return 0 if expiration_date.nil?
 
