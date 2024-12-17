@@ -4,30 +4,31 @@ require "open-uri"
 class RecipesController < ApplicationController
 
   def show
-    # @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def new
-    @content = content()
-    @recipes = []
-    @recipes_text = @content.split(/(?="title")/)
-    @recipes_text.shift  # Enlève l'introduction
+    @recipes = Recipe.all
+    # @content = content()
+    # @recipes = []
+    # @recipes_text = @content.split(/(?="title")/)
+    # @recipes_text.shift  # Enlève l'introduction
 
-    @recipes_text.each do |recipe_text|
-      @recipe = Recipe.create!(
-        name: recipe_text.match(/"title":\s*"([^"]+)"/)[1].strip,
-        ingredients: recipe_text
-          .match(/"ingredients":\s*\[(.*?)\]/m)[1]
-          .scan(/"([^"]+)"/)
-          .flatten,
-        detail: recipe_text
-          .match(/"détails":\s*"([^"]+)"/)[1]
-          .strip,
-      )
-      set_photos(@recipe)
-      @recipes << @recipe
-    end
-    @recipes
+    # @recipes_text.each do |recipe_text|
+    #   @recipe = Recipe.create!(
+    #     name: recipe_text.match(/"title":\s*"([^"]+)"/)[1].strip,
+    #     ingredients: recipe_text
+    #       .match(/"ingredients":\s*\[(.*?)\]/m)[1]
+    #       .scan(/"([^"]+)"/)
+    #       .flatten,
+    #     detail: recipe_text
+    #       .match(/"détails":\s*"([^"]+)"/)[1]
+    #       .strip,
+    #   )
+    #   set_photos(@recipe)
+    #   @recipes << @recipe
+    # end
+    # @recipes
   end
 
   private

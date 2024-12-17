@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "user_recipes/destroy"
   get "camera" => "products#camera"
   resources :products
-  resources :user_recipes, only: [:index, :destroy]
+  resources :user_recipes, only: [:index, :destroy, :create]
   devise_for :users
   resources :recipes, only: [:show]
   root to: "pages#home"

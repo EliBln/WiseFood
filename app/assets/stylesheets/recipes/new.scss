@@ -127,3 +127,65 @@
     }
   }
 }
+
+.bottom-nav-recipe {
+  position: fixed;
+  bottom: 0;
+  max-width: inherit;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 177, 153, 0.95),
+    rgba(255, 212, 184, 0.95)
+  );
+  border-radius: 25px 25px 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.no-underline-recipe {
+  text-decoration: none;
+}
+
+.add-button-recipe {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(45deg, #ff5e5e, #ff7676);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: white;
+  transform: translateY(-20px);
+  box-shadow: 0 4px 15px rgba(255, 94, 94, 0.4),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  &:hover {
+    transform: translateY(-22px);
+    box-shadow: 0 6px 20px rgba(255, 94, 94, 0.5),
+      inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.nav-item-recipe {
+  width: 24px;
+  height: 24px;
+  opacity: 0.6;
+  &:hover {
+    opacity: 1;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: #333;
+  }
+}

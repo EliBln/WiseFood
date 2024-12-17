@@ -1,0 +1,20 @@
+<div class="card-recipe">
+  <div class="heart-button">
+    <%= image_tag 'heart (1).png', alt: 'fav', class: 'heart-icon' %>
+  </div>
+  <div class="header">
+    <%= cl_image_tag(recipe.photo.key, class: "card-img") if recipe.photo.attached? %>
+    <h1><%= recipe.name %></h1>
+  </div>
+  <% unless recipes_show_path %>
+    <div class="ingredients">
+      <h2>Ingrédients</h2>
+      <ul>
+        <li> <%= recipe.ingredients %> </li>
+        <%# <% recipe.ingredients.each do |ingredient| %>
+          <%# <li><%= ingredient</li>  %>
+          <%# <% end %>
+        </ul>
+      </div>
+    <% end %>
+    </div>
