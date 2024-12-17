@@ -2,6 +2,8 @@
 puts "Cleaning database..."
 Product.destroy_all
 Categorie.destroy_all
+UserRecipe.destroy_all
+Recipe.destroy_all
 User.destroy_all
 
 puts "Creating user..."
@@ -11,61 +13,17 @@ user1 = User.create!(
 )
 
 puts "Creating categories..."
-fromage = Categorie.create!(
-  name: "Fromage",
-  img_url: "https://cdn-icons-png.flaticon.com/128/1303/1303977.png"
-
-)
-
-viande = Categorie.create!(
-  name: "Viande",
-  img_url: "https://cdn-icons-png.flaticon.com/128/3143/3143643.png"
-)
-
-lait = Categorie.create!(
-  name: "Lait",
-  img_url: "https://cdn-icons-png.flaticon.com/128/869/869664.png"
-)
-
-légumes = Categorie.create!(
-  name: "Légumes",
-  img_url: "https://cdn-icons-png.flaticon.com/128/2153/2153786.png"
-)
-
-volaille = Categorie.create!(
-  name: "Volaille",
-  img_url: "https://cdn-icons-png.flaticon.com/128/3143/3143626.png"
-)
-
-bonbon = Categorie.create!(
-  name: "Bonbon",
-  img_url: "https://cdn-icons-png.flaticon.com/128/2575/2575864.png"
-)
-
-boisson = Categorie.create!(
-  name: "Boisson",
-  img_url: "https://cdn-icons-png.flaticon.com/128/2405/2405479.png"
-)
-
-fruit = Categorie.create!(
-  name: "Fruit",
-  img_url: "https://cdn-icons-png.flaticon.com/128/1625/1625048.png"
-)
-
-oeuf = Categorie.create!(
-  name: "Oeuf",
-  img_url: "https://cdn-icons-png.flaticon.com/128/2713/2713474.png"
-)
-
-poisson = Categorie.create!(
-  name: "Poisson",
-  img_url: "https://cdn-icons-png.flaticon.com/128/2929/2929546.png"
-)
-
-yaourt = Categorie.create!(
-  name: "Yaourt",
-  img_url: "https://cdn-icons-png.flaticon.com/128/3142/3142859.png"
-)
+fromage = Categorie.create!(name: "Fromage", img_url: "https://cdn-icons-png.flaticon.com/128/1303/1303977.png")
+viande = Categorie.create!(name: "Viande", img_url: "https://cdn-icons-png.flaticon.com/128/3143/3143643.png")
+lait = Categorie.create!(name: "Lait", img_url: "https://cdn-icons-png.flaticon.com/128/869/869664.png")
+légumes = Categorie.create!(name: "Légumes", img_url: "https://cdn-icons-png.flaticon.com/128/2153/2153786.png")
+volaille = Categorie.create!(name: "Volaille", img_url: "https://cdn-icons-png.flaticon.com/128/3143/3143626.png")
+bonbon = Categorie.create!(name: "Bonbon", img_url: "https://cdn-icons-png.flaticon.com/128/2575/2575864.png")
+boisson = Categorie.create!(name: "Boisson", img_url: "https://cdn-icons-png.flaticon.com/128/2405/2405479.png")
+fruit = Categorie.create!(name: "Fruit", img_url: "https://cdn-icons-png.flaticon.com/128/1625/1625048.png")
+oeuf = Categorie.create!(name: "Oeuf", img_url: "https://cdn-icons-png.flaticon.com/128/2713/2713474.png")
+poisson = Categorie.create!(name: "Poisson", img_url: "https://cdn-icons-png.flaticon.com/128/2929/2929546.png")
+yaourt = Categorie.create!(name: "Yaourt", img_url: "https://cdn-icons-png.flaticon.com/128/3142/3142859.png")
 
 puts "Creating products..."
 products_data = [
@@ -92,7 +50,36 @@ products_data.each do |product_data|
   )
 end
 
+puts "Creating recipes..."
+carbonara = Recipe.create!(
+  name: "Pâtes Carbonara",
+  detail: "Un plat italien traditionnel",
+  img_url: "https://via.placeholder.com/150",
+  ingredient: "Pâtes, crème, oeufs, oignons, parmesan"
+)
+
+bolognese = Recipe.create!(
+  name: "Spaghetti Bolognaise",
+  detail: "Recette de sauce à la viande hachée",
+  img_url: "https://via.placeholder.com/150",
+  ingredient: "Spaghetti, viande hachée, tomate, oignons, ail"
+)
+
+ratatouille = Recipe.create!(
+  name: "Ratatouille",
+  detail: "Un mélange délicieux de légumes",
+  img_url: "https://via.placeholder.com/150",
+  ingredient: "Tomates, courgettes, aubergines, oignons, poivrons"
+)
+
+puts "Adding recipes to favorites..."
+UserRecipe.create!(user: user1, recipe: carbonara)
+UserRecipe.create!(user: user1, recipe: bolognese)
+UserRecipe.create!(user: user1, recipe: ratatouille)
+
 puts "Finished! Created:"
 puts "- #{User.count} users"
 puts "- #{Categorie.count} categories"
 puts "- #{Product.count} products"
+puts "- #{Recipe.count} recipes"
+puts "- #{UserRecipe.count} user recipes"

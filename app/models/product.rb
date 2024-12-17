@@ -27,4 +27,13 @@ class Product < ApplicationRecord
   def expired?
     days_remaining == 0
   end
+
+
+
+private
+
+def set_default_position
+  self.position = (Product.maximum(:position) || 0) + 1
+end
+
 end

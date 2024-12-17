@@ -9,7 +9,6 @@ body {
   align-items: center;
 }
 
-
 .container {
   background-color: #FFFDE9;
   width: 100vh;
@@ -20,6 +19,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+ 
 
   // Desktop styles
   @media (min-width: 992px) {
@@ -45,6 +45,8 @@ body {
     border-radius: 0;
   }
 }
+
+
 
 // .container2 {
 //   background-color: #fffde9;

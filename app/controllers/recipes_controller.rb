@@ -2,6 +2,11 @@ require "openai"
 require "open-uri"
 
 class RecipesController < ApplicationController
+
+  def show
+    # @recipe = Recipe.find(params[:id])
+  end
+
   def new
     @content = content()
     @recipes = []
@@ -59,6 +64,7 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :ingredients, :detail, :photo)
+
   end
 end
 
