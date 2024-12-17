@@ -1,4 +1,5 @@
 class Recipe < ApplicationRecord
+  serialize :detail, coder: JSON, type: Hash
   has_one_attached :photo
 
   validates :name, presence: true
