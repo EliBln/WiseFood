@@ -56,7 +56,13 @@ puts "Creating recipes..."
 file = URI.parse("https://via.placeholder.com/150").open
 carbonara = Recipe.new(
   name: "Pâtes Carbonara",
-  detail: "Un plat italien traditionnel",
+  detail: {"étape_1"=>"Dans un bol, cassez les œufs et battez-les avec du sel et du poivre.",
+    "étape_2"=>"Dans une poêle, faites fondre un peu de beurre à feu moyen.",
+    "étape_3"=>"Ajoutez le poulet coupé en morceaux et faites-le réchauffer légèrement.",
+    "étape_4"=>"Versez les œufs battus dans la poêle et laissez cuire pendant quelques minutes.",
+    "étape_5"=>"Ajoutez des morceaux de camembert sur une moitié de l'omelette.",
+    "étape_6"=>"Une fois que les œufs commencent à prendre, pliez l'omelette en deux et laissez cuire encore une minute.",
+    "étape_7"=>"Servez chaud."},
   ingredients: "Pâtes, crème, oeufs, oignons, parmesan"
 )
 carbonara.photo.attach(io: file, filename: "carbonara.jpg", content_type: "image/jpg")
@@ -65,7 +71,13 @@ carbonara.save!
 file = URI.parse("https://via.placeholder.com/150").open
 bolognese = Recipe.new(
   name: "Spaghetti Bolognaise",
-  detail: "Recette de sauce à la viande hachée",
+  detail: {"étape_1"=>"Dans un bol, cassez les œufs et battez-les avec du sel et du poivre.",
+    "étape_2"=>"Dans une poêle, faites fondre un peu de beurre à feu moyen.",
+    "étape_3"=>"Ajoutez le poulet coupé en morceaux et faites-le réchauffer légèrement.",
+    "étape_4"=>"Versez les œufs battus dans la poêle et laissez cuire pendant quelques minutes.",
+    "étape_5"=>"Ajoutez des morceaux de camembert sur une moitié de l'omelette.",
+    "étape_6"=>"Une fois que les œufs commencent à prendre, pliez l'omelette en deux et laissez cuire encore une minute.",
+    "étape_7"=>"Servez chaud."},
   ingredients: "Spaghetti, viande hachée, tomate, oignons, ail"
 )
 bolognese.photo.attach(io: file, filename: "bolognese.jpg", content_type: "image/jpg")
@@ -74,7 +86,13 @@ bolognese.save!
 file = URI.parse("https://via.placeholder.com/150").open
 ratatouille = Recipe.new(
   name: "Ratatouille",
-  detail: "Un mélange délicieux de légumes",
+  detail: {"étape_1"=>"Dans un bol, cassez les œufs et battez-les avec du sel et du poivre.",
+    "étape_2"=>"Dans une poêle, faites fondre un peu de beurre à feu moyen.",
+    "étape_3"=>"Ajoutez le poulet coupé en morceaux et faites-le réchauffer légèrement.",
+    "étape_4"=>"Versez les œufs battus dans la poêle et laissez cuire pendant quelques minutes.",
+    "étape_5"=>"Ajoutez des morceaux de camembert sur une moitié de l'omelette.",
+    "étape_6"=>"Une fois que les œufs commencent à prendre, pliez l'omelette en deux et laissez cuire encore une minute.",
+    "étape_7"=>"Servez chaud."},
   ingredients: "Tomates, courgettes, aubergines, oignons, poivrons"
 )
 ratatouille.photo.attach(io: file, filename: "ratatouille.jpg", content_type: "image/jpg")
