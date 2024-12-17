@@ -4,17 +4,22 @@
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+  margin-top: 2rem;
+  
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    flex-wrap: wrap;
   }
 
   h1 {
     font-family: 'Molle', cursive;
-    font-size: 24px;
+    font-size: 27px;
     color: #333;
     text-align: center;
   }
@@ -23,7 +28,7 @@
 .heart-button {
   width: 50px;
   height: 50px;
-  margin-right: 15px;
+  /* margin-right: 15px; */
   position: absolute;
   top: 2rem;
   right: 1rem;
@@ -37,6 +42,10 @@
   .heart-icon {
     width: 50px;
     height: 50px;
-    margin-right: 15px;
+    // margin-right: 15px;
   }
+}
+
+.overflow {
+  overflow: auto;
 }
