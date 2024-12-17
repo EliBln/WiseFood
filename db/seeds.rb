@@ -1,3 +1,5 @@
+require "open-uri"
+
 # db/seeds.rb
 puts "Cleaning database..."
 Product.destroy_all
@@ -51,26 +53,32 @@ products_data.each do |product_data|
 end
 
 puts "Creating recipes..."
-carbonara = Recipe.create!(
+file = URI.parse("https://via.placeholder.com/150").open
+carbonara = Recipe.new(
   name: "Pâtes Carbonara",
   detail: "Un plat italien traditionnel",
-  img_url: "https://via.placeholder.com/150",
-  ingredient: "Pâtes, crème, oeufs, oignons, parmesan"
+  ingredients: "Pâtes, crème, oeufs, oignons, parmesan"
 )
+carbonara.photo.attach(io: file, filename: "carbonara.jpg", content_type: "image/jpg")
+carbonara.save!
 
-bolognese = Recipe.create!(
+file = URI.parse("https://via.placeholder.com/150").open
+bolognese = Recipe.new(
   name: "Spaghetti Bolognaise",
   detail: "Recette de sauce à la viande hachée",
-  img_url: "https://via.placeholder.com/150",
-  ingredient: "Spaghetti, viande hachée, tomate, oignons, ail"
+  ingredients: "Spaghetti, viande hachée, tomate, oignons, ail"
 )
+bolognese.photo.attach(io: file, filename: "bolognese.jpg", content_type: "image/jpg")
+bolognese.save!
 
-ratatouille = Recipe.create!(
+file = URI.parse("https://via.placeholder.com/150").open
+ratatouille = Recipe.new(
   name: "Ratatouille",
   detail: "Un mélange délicieux de légumes",
-  img_url: "https://via.placeholder.com/150",
-  ingredient: "Tomates, courgettes, aubergines, oignons, poivrons"
+  ingredients: "Tomates, courgettes, aubergines, oignons, poivrons"
 )
+ratatouille.photo.attach(io: file, filename: "ratatouille.jpg", content_type: "image/jpg")
+ratatouille.save!
 
 puts "Adding recipes to favorites..."
 UserRecipe.create!(user: user1, recipe: carbonara)

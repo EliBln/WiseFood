@@ -51,7 +51,7 @@ class RecipesController < ApplicationController
   end
 
   def content
-    @products = Product.where(user_id: 10)
+    @products = Product.where(user_id: current_user)
     @product_names = @products.pluck(:name).join(", ")
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {

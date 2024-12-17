@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_16_143524) do
-
+ActiveRecord::Schema[7.1].define(version: 2024_12_17_094113) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,7 +57,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_16_143524) do
     t.date "expiration_date"
     t.string "quantity_stock"
     t.bigint "user_id", null: false
-    t.integer "position"
     t.index ["categorie_id"], name: "index_products_on_categorie_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -68,8 +66,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_16_143524) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "detail"
+    t.string "ingredient"
     t.string "ingredients"
-
   end
 
   create_table "user_recipes", force: :cascade do |t|
