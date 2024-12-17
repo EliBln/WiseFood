@@ -1,21 +1,23 @@
-<div class="back-button">
-  <%= link_to user_recipes_index_path do %>
-    <%= image_tag 'button.svg', alt: 'Retour', class: 'svg-icon' %>
-  <% end %>
-</div>
+<div class="overflow">
+  <div class="back-button">
+    <%= link_to user_recipes_index_path do %>
+      <%= image_tag 'button.svg', alt: 'Retour', class: 'svg-icon' %>
+    <% end %>
+  </div>
   <%= render "components/card-recipe", recipe: @recipe %>
-<div class="steps">
-  <h2>Préparation</h2>
-  <div class="step">
-    <h3>Étape 1</h3>
+  <div class="steps">
+    <h2>Préparation</h2>
+    <div class="step">
+      <h3>Étape 1</h3>
+    </div>
+    <p>Préparation</p>
+    <div class="step">
+      <h3>Étape 2</h3>
+    </div>
+    <p>Préparation</p>
+    <div class="step">
+      <h3>Étape 3</h3>
+    </div>
+    <p>Préparation</p>
   </div>
-  <p>Préparation</p>
-  <div class="step">
-    <h3>Étape 2</h3>
-  </div>
-  <p>Préparation</p>
-  <div class="step">
-    <h3>Étape 3</h3>
-  </div>
-  <p>Préparation</p>
 </div>

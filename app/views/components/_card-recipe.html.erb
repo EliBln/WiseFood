@@ -3,8 +3,8 @@
     <%= image_tag 'heart (1).png', alt: 'fav', class: 'heart-icon' %>
   </div>
   <div class="header">
-    <%= cl_image_tag(recipe.photo.key, class: "card-img") if recipe.photo.attached? %>
     <h1><%= recipe.name %></h1>
+    <%= cl_image_tag(recipe.photo.key, class: "card-img") if recipe.photo.attached? %>
   </div>
   <% unless recipes_show_path %>
     <div class="ingredients">
@@ -17,4 +17,4 @@
         </ul>
       </div>
     <% end %>
-    </div>
+  </div>
