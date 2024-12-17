@@ -34,11 +34,32 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.where(user_id: current_user)
-     @products = Product.includes(:categorie).all
-     @products = Product.all.order(:expiration_date)
-    @shelves = @products.each_slice(3).to_a
-    @categories = Categorie.all
+    def index
+      # Start with current user's products
+      @products = Product.where(user_id: current_user.id)
+                  .includes(:categorie) # Eager load categories
+
+      # Apply category filter if present
+      if params[:category].present?
+        @products = @products.where(categorie_id: params[:category])
+      end
+
+      # Apply sorting
+      @products = case params[:sort]
+        when 'name'
+          @products.order(:name)
+        when 'expiration'
+          @products.order(:expiration_date)
+        else
+          @products.order(:expiration_date) # Default sorting
+        end
+
+      # Group products for shelf display
+      @shelves = @products.each_slice(3).to_a
+
+      # Get categories for filter menu
+      @categories = Categorie.all
+    end
   end
 
   def create
