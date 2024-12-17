@@ -1,41 +1,6 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f8f1e4;
-}
 
-.containerx {
-  background: linear-gradient(135deg, #ffb199, #ff8a7a);
-  width: 300px;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-h1 {
-  font-family: 'Molle', cursive;
-  font-size: 24px;
-  color: #333;
-  text-align: center;
-}
-
-.favorite-button {
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: red;
-}
-
-.ingredients, .steps {
+.ingredients,
+.steps {
   margin: 20px 0;
   background-color: #fdf2e9;
   padding: 10px;
@@ -50,26 +15,26 @@ h2 {
 }
 
 
-  .step {
-    margin-bottom: 10px;
-    background-color: rgb(255, 248, 225);
-    padding: 10px;
-    border-radius: 10px;
+.step {
+  margin-bottom: 10px;
+  background-color: rgb(255, 248, 225);
+  padding: 10px;
+  border-radius: 10px;
 
-    /* Ajout d'une ombre pour la profondeur */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
-                0 6px 20px rgba(0, 0, 0, 0.15);
+  /* Ajout d'une ombre pour la profondeur */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+    0 6px 20px rgba(0, 0, 0, 0.15);
 
-    /* Optionnel : effet 3D subtil */
-    transform: translateY(0);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* Optionnel : effet 3D subtil */
+  transform: translateY(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .step:hover {
-    /* Effet interactif : léger déplacement et ombre plus marquée */
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3),
-                0 8px 24px rgba(0, 0, 0, 0.25);
+  /* Effet interactif : léger déplacement et ombre plus marquée */
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3),
+    0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -88,14 +53,4 @@ ul {
 ul li::before {
   content: "• ";
   color: #d45d3c;
-}
-
-.heart-icon {
-  width: 40px;
-  height: 40px;
-  margin-right: 15px;
-  position: absolute;
-    top: 1rem;
-    right: 1rem;
-
 }

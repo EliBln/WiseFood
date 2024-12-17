@@ -1,51 +1,21 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recette Pâtes Carbonara</title>
-</head>
-
-<body>
-    <div class="container">
-          <%= image_tag 'heart (1).png', alt: 'fav', class: 'heart-icon' %>
-        <div class="containerx">
-            <div class="header">
-                <div class="back-button">
-                    <%= link_to products_path do %>
-                        <%= image_tag 'button.svg', alt: 'Retour', class: 'svg-icon' %>
-                    <% end %>
-                </div>
-                <h1>Pâtes carbonara</h1>
-                <%# <button class="favorite-button">&#x2764;</button> %>
-            </div>
-            <div class="ingredients">
-                <h2>Ingrédients</h2>
-                <ul>
-                    <li>pâtes</li>
-                    <li>crème</li>
-                    <li>oeufs</li>
-                    <li>oignons</li>
-                </ul>
-            </div>
-             </div>
-            <div class="steps">
-                <h2>Préparation</h2>
-                <div class="step">
-                    <h3>Étape 1</h3>
-                      </div>
-                    <p>Préparation</p>
-                <div class="step">
-                    <h3>Étape 2</h3>
-                         </div>
-                    <p>Préparation</p>
-                <div class="step">
-                    <h3>Étape 3</h3>
-                        </div>
-                    <p>Préparation</p>
-
-            </div>
-
-    </div>
-</body>
-</html>
+<div class="back-button">
+  <%= link_to user_recipes_index_path do %>
+    <%= image_tag 'button.svg', alt: 'Retour', class: 'svg-icon' %>
+  <% end %>
+</div>
+  <%= render "components/card-recipe", recipe: @recipe %>
+<div class="steps">
+  <h2>Préparation</h2>
+  <div class="step">
+    <h3>Étape 1</h3>
+  </div>
+  <p>Préparation</p>
+  <div class="step">
+    <h3>Étape 2</h3>
+  </div>
+  <p>Préparation</p>
+  <div class="step">
+    <h3>Étape 3</h3>
+  </div>
+  <p>Préparation</p>
+</div>
