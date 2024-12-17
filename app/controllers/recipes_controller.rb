@@ -32,7 +32,6 @@ class RecipesController < ApplicationController
       # set_photos(@recipe)
       @recipes << @recipe
     end
-    raise
     @recipes
   end
 
