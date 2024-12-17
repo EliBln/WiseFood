@@ -16,13 +16,16 @@
     background: rgba(0, 0, 0, 0);
     border-radius: 3px;
   }
+
   // responsive mobile
   @media (max-width: 576px) {
     padding: 10px;
   }
+
   .shelf {
     // position: relative;
-    margin-bottom: -30px; /* Ajoute un espace entre chaque étagère */
+    margin-bottom: -30px;
+    /* Ajoute un espace entre chaque étagère */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,8 +41,10 @@
       width: 100%;
       z-index: 2;
       margin-bottom: 20px;
-      align-items: flex-end; /* Aligne les produits en bas */
-      margin-top: -20px; /* Ajustez ce margin pour placer les produits sur la table */
+      align-items: flex-end;
+      /* Aligne les produits en bas */
+      margin-top: -20px;
+      /* Ajustez ce margin pour placer les produits sur la table */
     }
 
     .shelf-table {
@@ -49,19 +54,17 @@
       flex-direction: column;
       align-items: center;
       perspective: 150px;
-       scale: 60%;
+      scale: 60%;
       justify-content: flex-start;
 
       .trapeze {
         height: 100px;
         width: 505px;
         background-color: #fbd288;
-        background: linear-gradient(
-          to bottom,
-          hsl(39, 93%, 84%),
-          hsl(39, 93%, 81%),
-          hsl(39, 93%, 79%)
-        );
+        background: linear-gradient(to bottom,
+            hsl(39, 93%, 84%),
+            hsl(39, 93%, 81%),
+            hsl(39, 93%, 79%));
         transform: rotateX(50deg);
         transform-origin: bottom center;
         border-radius: 40px 40px 10px 10px;
@@ -81,7 +84,8 @@
 
 .item {
   width: 45px;
-  height: 40px; /* Garde les icônes adaptées à leur contenu */
+  height: 40px;
+  /* Garde les icônes adaptées à leur contenu */
   text-align: center;
   margin: 0 10px;
   text-decoration: none;
@@ -94,7 +98,7 @@
     margin-left: 0;
   }
 
-    &.hover {
+  &.hover {
     transform: scale(1.05);
     transition: transform 0.2s ease;
   }
@@ -150,11 +154,9 @@
   max-width: inherit;
   width: 100%;
   height: 80px;
-  background: linear-gradient(
-    to top,
-    rgba(255, 177, 153, 0.95),
-    rgba(255, 212, 184, 0.95)
-  );
+  background: linear-gradient(to top,
+      rgba(255, 177, 153, 0.95),
+      rgba(255, 212, 184, 0.95));
   border-radius: 25px 25px 0 0;
   display: flex;
   justify-content: space-around;
@@ -184,6 +186,7 @@
     inset 0 -2px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
   text-decoration: none;
+
   &:hover {
     transform: translateY(-22px);
     box-shadow: 0 6px 20px rgba(255, 94, 94, 0.5),
@@ -195,6 +198,7 @@
   width: 24px;
   height: 24px;
   opacity: 0.6;
+
   &:hover {
     opacity: 1;
   }
@@ -203,5 +207,88 @@
     width: 100%;
     height: 100%;
     fill: #333;
+  }
+}
+
+.burger-menu {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.burger-btn {
+  background: rgba(255, 94, 94, 0.1);
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+
+  svg {
+    fill: #ff5e5e;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: rgba(255, 94, 94, 0.2);
+    transform: scale(1.05);
+
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.dropdown-menu {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  margin-top: 10px;
+  max-height: 60vh; // Limit height
+  overflow-y: auto; // Enable scrolling
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // 2 columns
+    gap: 8px;
+    max-width: 300px; // Limit width
+  }
+
+  .dropdown-header {
+    color: #666;
+    font-weight: 600;
+    padding: 8px;
+    font-family: 'Itim', cursive;
+    grid-column: 1 / -1; // Span all columns
+  }
+
+  .dropdown-item {
+    color: #333;
+    padding: 8px;
+    transition: all 0.2s ease;
+    font-family: 'Itim', cursive;
+    white-space: nowrap;
+    font-size: 0.9rem;
+
+    &:hover {
+      background: rgba(255, 94, 94, 0.1);
+      color: #ff5e5e;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

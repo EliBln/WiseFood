@@ -1,3 +1,28 @@
+<div class="burger-menu">
+  <button class="burger-btn" data-bs-toggle="dropdown" aria-expanded="false">
+    <svg viewBox="0 0 24 24" width="24" height="24">
+      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+    </svg>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li class="dropdown-header">Trier par</li>
+    <li>
+      <%= link_to "Date d'expiration", products_path(sort: 'expiration'), class: "dropdown-item" %>
+    </li>
+    <li>
+      <%= link_to "Nom", products_path(sort: 'name'), class: "dropdown-item" %>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li class="dropdown-header">Filtrer par catégorie</li>
+    <div class="categories-grid">
+      <% Categorie.all.each do |category| %>
+        <li>
+          <%= link_to category.name, products_path(category: category.id), class: "dropdown-item" %>
+        </li>
+      <% end %>
+    </div>
+  </ul>
+</div>
 <div class="shelf-container">
   <% total_shelves = [@products.length.fdiv(3).ceil, 9].max %>
   <% total_shelves.times do |shelf_index| %>
