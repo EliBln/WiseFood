@@ -1,0 +1,5 @@
+<% if turbo_stream_action_name == "replace" %>
+  <%= turbo_stream.replace "loading", partial: "components/card-recipe", locals: { recipe: @recipe } %>
+<% else %>
+  <%= turbo_stream.append "recipes_list", partial: "components/card-recipe", locals: { recipe: @recipe } %>
+<% end %>
