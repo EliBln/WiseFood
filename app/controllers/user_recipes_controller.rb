@@ -1,6 +1,12 @@
 class UserRecipesController < ApplicationController
   def index
-    @favorite_recipes = current_user.recipes
+    @recipes = []
+    @user_recipes = UserRecipe.where(user_id: current_user.id)
+    @user_recipes.each do |user_recipe|
+      @recipe = Recipe.find(user_recipe.recipe_id)
+      @recipes << @recipe
+    end
+    @recipes
   end
 
   def create
