@@ -2,28 +2,13 @@
   <h2 class="section-title">Nos dernières recettes</h2>
   <div class="recipes-scroll">
     <% @recipes.each do |recipe| %>
-      <div class="recipe-card">
-        <%# <div class="recipe-image">
-          <%= cl_image_tag(recipe.photo.key, class: "card-img") if recipe.photo.attached? %>
-        <%# </div>  %>
-        <div class="recipe-content">
-          <h3 class="recipe-title"><%= recipe.name %></h3>
-          <p class="recipe-detail"><%= truncate(recipe.ingredients, length: 100) %></p>
-          <%= link_to user_recipes_path(recipe_id: recipe.id, user_id: current_user.id),
-                data: { turbo_method: :post },
-                class: "favorite-btn" do %>
-            <svg viewBox="0 0 24 24" class="favorite-icon">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-          <% end %>
-        </div>
-      </div>
+      <%= render "components/card-recipe", recipe: recipe %>
     <% end %>
   </div>
 </div>
 <nav class="bottom-nav-recipe">
   <div class="nav-item-recipe">
-    <%= link_to user_recipes_index_path, class: "no-underline-recipe" do %>
+    <%= link_to user_recipes_path, class: "no-underline-recipe" do %>
       <svg viewBox="0 0 24 24">
         <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>
       </svg>
