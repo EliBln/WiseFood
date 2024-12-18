@@ -51,7 +51,7 @@ products_data.each do |product_data|
     user_id: user1.id
   )
 end
- 
+
 puts "Creating recipes..."
 file = URI.parse("https://via.placeholder.com/150").open
 carbonara = Recipe.new(
@@ -63,7 +63,7 @@ carbonara = Recipe.new(
     "étape_5"=>"Ajoutez des morceaux de camembert sur une moitié de l'omelette.",
     "étape_6"=>"Une fois que les œufs commencent à prendre, pliez l'omelette en deux et laissez cuire encore une minute.",
     "étape_7"=>"Servez chaud."},
-  ingredients: "Pâtes, crème, oeufs, oignons, parmesan"
+  ingredients: ["Pâtes", "crème", "oeufs", "oignons", "parmesan"],
 )
 carbonara.photo.attach(io: file, filename: "carbonara.jpg", content_type: "image/jpg")
 carbonara.save!
@@ -78,7 +78,7 @@ bolognese = Recipe.new(
     "étape_5"=>"Ajoutez des morceaux de camembert sur une moitié de l'omelette.",
     "étape_6"=>"Une fois que les œufs commencent à prendre, pliez l'omelette en deux et laissez cuire encore une minute.",
     "étape_7"=>"Servez chaud."},
-  ingredients: "Spaghetti, viande hachée, tomate, oignons, ail"
+  ingredients: ["Spaghetti", "viande hachée", "tomate", "oignons", "ail"],
 )
 bolognese.photo.attach(io: file, filename: "bolognese.jpg", content_type: "image/jpg")
 bolognese.save!
@@ -93,7 +93,7 @@ ratatouille = Recipe.new(
     "étape_5"=>"Ajoutez des morceaux de camembert sur une moitié de l'omelette.",
     "étape_6"=>"Une fois que les œufs commencent à prendre, pliez l'omelette en deux et laissez cuire encore une minute.",
     "étape_7"=>"Servez chaud."},
-  ingredients: "Tomates, courgettes, aubergines, oignons, poivrons"
+  ingredients: ["Tomates", "courgettes", "aubergines", "oignons", "poivrons"],
 )
 ratatouille.photo.attach(io: file, filename: "ratatouille.jpg", content_type: "image/jpg")
 ratatouille.save!

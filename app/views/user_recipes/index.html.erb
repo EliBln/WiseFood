@@ -1,10 +1,12 @@
 <div class="back-button">
-    <%= link_to recipes_new_path do %>
-      <%= image_tag 'button.svg', alt: 'Retour', class: 'svg-icon' %>
-    <% end %>
-  </div>
+  <%= link_to recipes_new_path do %>
+    <%= image_tag 'button.svg', alt: 'Retour', class: 'svg-icon' %>
+  <% end %>
+</div>
 <div class="scroll-user-recipes">
-<% @recipes.each do |recipe|%>
-<%= render "components/card-recipe", recipe: recipe %>
-<% end %>
+  <% @recipes.each do |recipe|%>
+    <%= link_to recipe_path(recipe), class: "recipe-link" do %>
+      <%= render "components/card-recipe", recipe: recipe %>
+    <% end %>
+  <% end %>
 </div>

@@ -24,6 +24,7 @@
   </ul>
 </div>
 <div class="shelf-container">
+  <% if @products.present? %>
   <% total_shelves = [@products.length.fdiv(3).ceil, 9].max %>
   <% total_shelves.times do |shelf_index| %>
     <div class="shelf">
@@ -49,6 +50,12 @@
         <div class="trapeze"></div>
         <div class="bottom"></div>
       </div>
+    </div>
+  <% end %>
+  <% else %>
+    <div class="empty-shelf">
+      <h2>Vous n'avez pas encore de produits</h2>
+      <p>Commencez par ajouter un produit en cliquant sur le bouton +</p>
     </div>
   <% end %>
 </div>
