@@ -5,19 +5,24 @@
     <% end %>
   </div>
   <%= render "components/card-recipe", recipe: @recipe %>
+  <div class="recipe-details">
+    <h2>Ingrédients</h2>
+    <ul>
+      <% @recipe.ingredients.split(',').each do |ingredient| %>
+        <li><%= ingredient.strip %></li>
+      <% end %>
+    </ul>
   <div class="steps">
     <h2>Préparation</h2>
-    <div class="step">
-      <h3>Étape 1</h3>
-    </div>
-    <p>Préparation</p>
-    <div class="step">
-      <h3>Étape 2</h3>
-    </div>
-    <p>Préparation</p>
-    <div class="step">
-      <h3>Étape 3</h3>
-    </div>
-    <p>Préparation</p>
+    <% if @recipe.detail.present? %>
+      <% @recipe.detail.each_with_index do |(key, value), index| %>
+        <% if key.start_with?('étape_') %>
+          <div class="step">
+            <h3>Étape <%= index + 1 %></h3>
+            <p><%= value %></p>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>
