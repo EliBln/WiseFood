@@ -1,10 +1,8 @@
 <div class="recipes-container">
   <h2 class="section-title">Nos dernières recettes</h2>
-  <div class="recipes-scroll">
+  <div class="recipes-scroll" id="recipes-list">
     <% @recipes.each do |recipe| %>
-      <%= link_to recipe_path(recipe), class: "recipe-link" do %>
-        <%= render "components/card-recipe", recipe: recipe %>
-      <% end %>
+      <%= render "components/card-recipe", recipe: recipe %>
     <% end %>
   </div>
 </div>

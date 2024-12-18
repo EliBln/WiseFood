@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
     @recipes_text[0].sub!(/```json\s*\[\s*{/, "") # Nettoie le début
     @recipes_text[-1].sub!(/}\s*]\s*```/, "") # Nettoie la fin
 
-    @recipes_text.each do |recipe_text|
+    @recipes_text.each_with_index do |recipe_text, index|
       # Extraction des détails et transformation en hash
       details = recipe_text.match(/"détails":\s*"(.*?)"/m)[1]
       steps = details.split(/Étape \d+ : /).reject(&:empty?)

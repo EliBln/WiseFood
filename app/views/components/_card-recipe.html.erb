@@ -1,3 +1,4 @@
+<%= link_to recipe_path(recipe), class: "recipe-link" do %>
 <div class="card-recipe"
      data-controller="favorite"
      data-recipe-id="<%= recipe.id %>"
@@ -24,3 +25,4 @@
     </div>
   <% end %>
 </div>
+<% end %>
