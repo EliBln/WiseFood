@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
     def index
       # Start with current user's products
       @products = Product.where(user_id: current_user.id)
-        .includes(:categorie) # Eager load categories
+        .includes(:categorie) || [] # Eager load categories
 
       # Apply category filter if present
       if params[:category].present?
@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
       end
 
       # Apply sorting
-      if params[:sort].present?
+      # if params[:sort].present?
         @products = case params[:sort]
           when "name"
             @products.order(:name)
@@ -54,8 +54,8 @@ class ProductsController < ApplicationController
           else
             @products.order(:expiration_date) # Default sorting
           end
-      end
-
+      # end
+      @products = @products.to_a || []
       # Group products for shelf display
       @shelves = @products.each_slice(3).to_a
 

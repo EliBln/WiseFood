@@ -71,7 +71,7 @@ carbonara = Recipe.new(
     "étape_5"=>"Ajoutez des morceaux de camembert sur une moitié de l'omelette.",
     "étape_6"=>"Une fois que les œufs commencent à prendre, pliez l'omelette en deux et laissez cuire encore une minute.",
     "étape_7"=>"Servez chaud."},
-  ingredients: ["Pâtes", "crème", "oeufs", "oignons", "parmesan"]
+  ingredients: ["Pâtes", "crème", "oeufs", "oignons", "parmesan"],
 )
 carbonara.photo.attach(io: file, filename: "carbonara.jpg", content_type: "image/jpg")
 carbonara.save!
@@ -86,7 +86,7 @@ bolognese = Recipe.new(
     "étape_5"=>"Laissez mijoter la sauce à feu doux pendant environ 20 minutes en remuant de temps en temps.",
     "étape_6"=>"Pendant ce temps, faites cuire les spaghetti dans une grande casserole d'eau bouillante salée, selon les instructions du paquet.",
     "étape_7"=>"Servez les spaghetti avec la sauce bolognaise chaude et un peu de parmesan râpé si désiré."},
-  ingredients: ["Spaghetti", "viande hachée", "tomate", "oignons", "ail"]
+  ingredients: ["Spaghetti", "viande hachée", "tomate", "oignons", "ail"],
 )
 bolognese.photo.attach(io: file, filename: "bolognese.jpg", content_type: "image/jpg")
 bolognese.save!
@@ -101,7 +101,7 @@ ratatouille = Recipe.new(
     "étape_5"=>"Mélangez bien et laissez mijoter à feu doux pendant environ 30 à 40 minutes, en remuant de temps en temps.",
     "étape_6"=>"Si la ratatouille est trop liquide, laissez cuire encore quelques minutes pour réduire la sauce.",
     "étape_7"=>"Servez chaud, seul ou en accompagnement d'un plat de viande ou de riz."},
-  ingredients: ["Tomates", "courgettes", "aubergines", "oignons", "poivrons"]
+  ingredients: ["Tomates", "courgettes", "aubergines", "oignons", "poivrons"],
 )
 ratatouille.photo.attach(io: file, filename: "ratatouille.jpg", content_type: "image/jpg")
 ratatouille.save!

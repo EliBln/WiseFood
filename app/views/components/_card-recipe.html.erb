@@ -17,7 +17,7 @@
     <div class="ingredients">
       <h2>Ingrédients</h2>
       <ul>
-        <% recipe.ingredients.split(',').each do |ingredient| %>
+        <% JSON.parse(recipe.ingredients).each do |ingredient| %>
           <li><%= ingredient.strip %></li>
         <% end %>
       </ul>

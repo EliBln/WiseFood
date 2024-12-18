@@ -7,6 +7,8 @@ class RecipesController < ApplicationController
   end
 
   def new
+    recipes_to_keep = UserRecipe.pluck(:recipe_id)
+    Recipe.where.not(id: recipes_to_keep).destroy_all
     @content = content()
     @recipes = []
     @recipes_text = @content.split(/},\s*{/)  # Sépare les recettes
@@ -20,6 +22,16 @@ class RecipesController < ApplicationController
       details_hash = steps.each_with_index.map do |step, index|
         ["étape_#{index + 1}", step.strip]
       end.to_h
+
+      # Extract ingredients and transform into hash
+      ingredients_array = recipe_text.match(/"ingredients":\s*\[\s*((?:"[^"]+"\s*,?\s*)*)\]/m)[1]
+        .scan(/"([^"]+)"/)
+        .flatten
+        .map(&:strip)
+
+      ingredients_array = ingredients_array.each.map do |ingredient|
+        [ingredient]
+      end.to_a
 
       @recipe = Recipe.create!(
         name: recipe_text.match(/"title":\s*"([^"]+)"/)[1].strip,

@@ -2,7 +2,9 @@
   <h2 class="section-title">Nos dernières recettes</h2>
   <div class="recipes-scroll">
     <% @recipes.each do |recipe| %>
-      <%= render "components/card-recipe", recipe: recipe %>
+      <%= link_to recipe_path(recipe), class: "recipe-link" do %>
+        <%= render "components/card-recipe", recipe: recipe %>
+      <% end %>
     <% end %>
   </div>
 </div>
@@ -19,13 +21,13 @@
     data: { turbo_frame: "_top" } do %>
     <div class="add-button-recipe">+</div>
   <% end %>
-    <div class="nav-item-recipe">
-  <%= link_to destroy_user_session_path,
+  <div class="nav-item-recipe">
+    <%= link_to destroy_user_session_path,
               data: { turbo_method: :delete },
               class: "no-underline-recipe" do %>
       <svg viewBox="0 0 24 24">
         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
       </svg>
-  <% end %>
-    </div>
-  </nav>
+    <% end %>
+  </div>
+</nav>

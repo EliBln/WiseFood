@@ -2,7 +2,7 @@
 
     width: 80%; /* Make it take up most of the width */
     max-width: 1200px; /* Set a maximum width for larger screens */
-    height: auto; /* Allow height to adjust to content */
+    height: 100vh; /* Allow height to adjust to content */
     margin: 0 auto; /* Center the div horizontally */
     padding: 2rem;
     display: flex;
@@ -16,3 +16,4 @@
     }
 
 }
+
