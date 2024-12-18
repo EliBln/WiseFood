@@ -51,7 +51,7 @@ products_data.each do |product_data|
     user_id: user1.id
   )
 end
-
+ 
 puts "Creating recipes..."
 file = URI.parse("https://via.placeholder.com/150").open
 carbonara = Recipe.new(
