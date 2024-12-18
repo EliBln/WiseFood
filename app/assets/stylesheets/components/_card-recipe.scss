@@ -5,18 +5,12 @@
   padding: 20px;
   position: relative;
   z-index: 1;
-
-  /* Adjust margins and spacing */
-  margin: 1rem auto; /* Change from margin-top to margin */
-
-  /* Add depth and shadows */
-  box-shadow:
-    12px 12px 24px rgba(0, 0, 0, 0.2),
-    inset -12px -12px 24px rgba(255, 255, 255, 0.1),
-    inset 12px 12px 24px rgba(0, 0, 0, 0.1);
-
-  /* Smooth transitions */
+  margin: 1rem auto;
+  box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.2), inset -12px -12px 24px rgba(255, 255, 255, 0.1), inset 12px 12px 24px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
 
   &:hover {
     transform: translateY(-5px);
@@ -51,7 +45,7 @@
   gap: 2rem;
   padding: 2rem;
   overflow-y: auto;
-  max-height: calc(100vh - 100px); 
+  max-height: calc(100vh - 100px);
 }
 
 // .heart-button {
@@ -80,21 +74,26 @@
 // }
 
 .heart-button {
-  width: 40px; /* Adjust size as needed */
+  width: 40px;
+  /* Adjust size as needed */
   height: 40px;
   position: absolute;
-  top: 1rem; /* Adjust to fit within the card */
+  top: 1rem;
+  /* Adjust to fit within the card */
   right: 1rem;
   background: none;
   border: none;
   color: #333;
-  font-size: 1.2rem; /* Adjust font size */
+  font-size: 1.2rem;
+  /* Adjust font size */
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 2; /* Ensure it stays above other elements */
+  z-index: 2;
+  /* Ensure it stays above other elements */
 }
 
 .heart-icon {
-  width: 24px; /* Adjust size as needed */
+  width: 24px;
+  /* Adjust size as needed */
   height: 24px;
 }

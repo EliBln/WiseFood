@@ -1,4 +1,6 @@
 class UserRecipesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @recipes = []
     @user_recipes = UserRecipe.where(user_id: current_user.id)
@@ -10,17 +12,20 @@ class UserRecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.find(params[:recipe_id])
-    @user_recipe = UserRecipe.new(recipe_id: @recipe.id, user_id: current_user.id)
-    @user_recipe.save
+    @user_recipe = current_user.user_recipes.build(recipe_id: params[:recipe_id])
+    if @user_recipe.save
+      head :ok
+    else
+      head :unprocessable_entity
+    end
   end
 
   def destroy
     @user_recipe = current_user.user_recipes.find(params[:id])
-    if user_recipe.destroy
-      redirect_to user_recipes_path, notice: "Recette retirée des favoris"
+    if @user_recipe.destroy
+      head :ok
     else
-      redirect_to user_recipes_path, alert: "Une erreur est survenue"
+      head :unprocessable_entity
     end
   end
 end

@@ -1,20 +1,26 @@
-<div class="card-recipe">
-  <div class="heart-button">
-    <%= image_tag 'heart (1).png', alt: 'fav', class: 'heart-icon' %>
-  </div>
+<div class="card-recipe"
+     data-controller="favorite"
+     data-recipe-id="<%= recipe.id %>"
+     data-favorited="<%= current_user.user_recipes.exists?(recipe_id: recipe.id) %>"
+     data-user-recipe-id="<%= current_user.user_recipes.find_by(recipe_id: recipe.id)&.id %>">
+
+  <button data-action="click->favorite#toggle" class="heart-button">
+    <%= image_tag current_user.user_recipes.exists?(recipe_id: recipe.id) ? 'heart (1).png' : 'heart.png',
+                  class: 'heart-icon',
+                  data: { favorite_target: "heart" } %>
+  </button>
   <div class="header">
     <h1><%= recipe.name %></h1>
     <%= cl_image_tag(recipe.photo.key, class: "card-img") if recipe.photo.attached? %>
   </div>
-  <% unless recipes_show_path %>
+  <% unless controller_name == 'recipes' && action_name == 'show' %>
     <div class="ingredients">
       <h2>Ingrédients</h2>
       <ul>
-        <li> <%= recipe.ingredients %> </li>
-        <%# <% recipe.ingredients.each do |ingredient| %>
-          <%# <li><%= ingredient</li>  %>
-          <%# <% end %>
-        </ul>
-      </div>
-    <% end %>
-  </div>
+        <% recipe.ingredients.split(',').each do |ingredient| %>
+          <li><%= ingredient.strip %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
