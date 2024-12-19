@@ -18,7 +18,7 @@
   </button>
   <div class="header">
     <h1><%= recipe.name %></h1>
-    <%= cl_image_tag(recipe.photo.key, class: "card-img") if recipe.photo.attached? %>
+    <%# <%= cl_image_tag(recipe.photo.key, class: "card-img") if recipe.photo.attached? %>
   </div>
   <% unless controller_name == 'recipes' && action_name == 'show' %>
     <div class="ingredients">
