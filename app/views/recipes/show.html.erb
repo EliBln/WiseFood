@@ -3,14 +3,17 @@
     <%= link_to user_recipes_path do %>
       <%= image_tag 'button.svg', alt: 'Retour', class: 'svg-icon' %>
     <% end %>
-  </div>
+   </div>
+    <%= link_to products_path do %>
+    <%= image_tag 'fridge.svg', alt: 'Produits', class: 'fridge-button' %>
+    <% end %>
   <%= render "components/card-recipe", recipe: @recipe %>
   <div class="recipe-details">
     <h2>Ingrédients</h2>
     <ul>
-      <% @recipe.ingredients.split(',').each do |ingredient| %>
-        <li><%= ingredient.strip %></li>
-      <% end %>
+      <% JSON.parse(@recipe.ingredients).each do |ingredient| %>
+          <li><%= ingredient.strip %></li>
+        <% end %>
     </ul>
   <div class="steps">
     <h2>Préparation</h2>

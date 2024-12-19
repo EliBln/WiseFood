@@ -61,18 +61,37 @@
 }
 
 .edit-button {
-  position: absolute;
-  bottom: 40px;
+  position: fixed; // Change de absolute à fixed pour rester en bas
+  bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   width: 60px;
   height: 60px;
-  background: #FF6B6B;
+  background: linear-gradient(145deg, #ff8a7a, #ff6b6b);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+  box-shadow:
+    0 4px 15px rgba(255, 107, 107, 0.3),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000; // Assure que le bouton reste au-dessus
+  cursor: pointer;
+
+  &:hover {
+    transform: translateX(-50%) translateY(-5px);
+    box-shadow:
+      0 8px 25px rgba(255, 107, 107, 0.4),
+      inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+  }
+
+  &:active {
+    transform: translateX(-50%) translateY(2px);
+    box-shadow:
+      0 2px 10px rgba(255, 107, 107, 0.2),
+      inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
 
   &::before {
     content: '';
@@ -80,7 +99,13 @@
     height: 24px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325'/%3E%3C/svg%3E") no-repeat center;
     background-size: contain;
+    transition: transform 0.3s ease;
   }
+}
+
+// Ajouter un espace en bas du contenu principal pour éviter que le bouton ne cache du contenu
+.content-wrapper {
+  padding-bottom: 100px; // Espace pour le bouton flottant
 }
 
 .trash-button {
@@ -105,4 +130,3 @@
   height: 50px;
 
 }
-

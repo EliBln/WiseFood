@@ -1,13 +1,13 @@
 .scroll-user-recipes {
 
-    width: 80%; /* Make it take up most of the width */
-    max-width: 1200px; /* Set a maximum width for larger screens */
+    width: 100%; /* Make it take up most of the width */
     height: 100vh; /* Allow height to adjust to content */
     margin: 0 auto; /* Center the div horizontally */
     padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center content horizontally */
+    overflow-y: auto;
 
     /* Add some responsive adjustments */
     @media (max-width: 768px) {
@@ -16,4 +16,3 @@
     }
 
 }
-
