@@ -41,7 +41,7 @@ class RecipesController < ApplicationController
           .map(&:strip),
         detail: details_hash.transform_keys(&:to_sym),
       )
-      set_photos(@recipe)
+      # set_photos(@recipe)
       @recipes << @recipe
     end
     @recipes
