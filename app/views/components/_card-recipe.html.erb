@@ -7,11 +7,11 @@
 
   <button data-action="click->favorite#toggle" class="heart-button">
     <% if current_user.user_recipes.exists?(recipe_id: recipe.id) %>
-      <%= image_tag 'heart (1).png',
+      <%= image_tag 'https://res.cloudinary.com/damvtycj5/image/upload/v1734622735/y5mkv581e9py5qahrz3b.png',
                     class: 'heart-icon',
                     data: { favorite_target: "heart" } %>
     <% else %>
-      <%= image_tag 'heart.png',
+      <%= image_tag 'https://res.cloudinary.com/damvtycj5/image/upload/v1734622598/q1qpxkedydun2rdvbuih.png',
                   class: 'heart-icon',
                   data: { favorite_target: "heart" } %>
     <% end %>

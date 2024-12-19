@@ -32,21 +32,21 @@ condiment = Categorie.create!(name: "Condiment", img_url: "https://cdn-icons-png
 
 puts "Creating products..."
 products_data = [
-  { name: "Emmental", expiration_date: "2024-12-17", categorie: fromage, quantity_stock: 1 },
-  { name: "Yaourt blanc", expiration_date: "2024-12-20", categorie: yaourt, quantity_stock: 1 },
-  { name: "Poulet", expiration_date: "2024-12-19", categorie: volaille, quantity_stock: 1 },
-  { name: "Steak de boeuf", expiration_date: "2024-12-25", categorie: viande, quantity_stock: 1 },
-  { name: "Salade", expiration_date: "2024-12-20", categorie: légumes, quantity_stock: 1 },
+  { name: "Emmental", expiration_date: "2024-12-22", categorie: fromage, quantity_stock: 1 },
+  { name: "Yaourt blanc", expiration_date: "2024-12-21", categorie: yaourt, quantity_stock: 1 },
+  { name: "Poulet", expiration_date: "2024-12-22", categorie: volaille, quantity_stock: 1 },
+  { name: "Steak", expiration_date: "2024-12-25", categorie: viande, quantity_stock: 1 },
+  { name: "Salade", expiration_date: "2024-12-24", categorie: légumes, quantity_stock: 1 },
   { name: "Lait", expiration_date: "2024-12-26", categorie: lait, quantity_stock: 2 },
   { name: "Banane", expiration_date: "2024-12-21", categorie: fruit, quantity_stock: 1 },
   { name: "Coca", expiration_date: "2025-12-18", categorie: boisson, quantity_stock: 1 },
-  { name: "Oeuf", expiration_date: "2024-12-17", categorie: oeuf, quantity_stock: 1 },
+  { name: "Oeuf", expiration_date: "2024-12-27", categorie: oeuf, quantity_stock: 1 },
   { name: "Bonbon", expiration_date: "2024-12-17", categorie: bonbon, quantity_stock: 1 },
   { name: "Basilic", expiration_date: "2024-12-25", categorie: légumes, quantity_stock: 1 },
-  { name: "Tomate", expiration_date: "2024-12-22", categorie: légumes, quantity_stock: 1 },
+  { name: "Tomate", expiration_date: "2024-12-27", categorie: légumes, quantity_stock: 1 },
   { name: "Crème fraîche", expiration_date: "2024-12-28", categorie: crème, quantity_stock: 1 },
   { name: "Beurre", expiration_date: "2025-1-12", categorie: beurre, quantity_stock: 1 },
-  { name: "Mozzarella", expiration_date: "2024-12-20", categorie: fromage, quantity_stock: 1 },
+  { name: "Mozzarella", expiration_date: "2024-12-22", categorie: fromage, quantity_stock: 1 },
   { name: "Moutarde", expiration_date: "2025-3-2", categorie: condiment, quantity_stock: 1 },
 ]
 
@@ -61,7 +61,7 @@ products_data.each do |product_data|
 end
 
 puts "Creating recipes..."
-file = URI.parse("https://via.placeholder.com/150").open
+# file = URI.parse("https://via.placeholder.com/150").open
 carbonara = Recipe.new(
   name: "Pâtes Carbonara",
   detail: {"étape_1"=>"Dans un bol, cassez les œufs et battez-les avec du sel et du poivre.",
@@ -73,10 +73,10 @@ carbonara = Recipe.new(
     "étape_7"=>"Servez chaud."},
   ingredients: ["Pâtes", "crème", "oeufs", "oignons", "parmesan"],
 )
-carbonara.photo.attach(io: file, filename: "carbonara.jpg", content_type: "image/jpg")
-carbonara.save!
+# carbonara.photo.attach(io: file, filename: "carbonara.jpg", content_type: "image/jpg")
+ carbonara.save!
 
-file = URI.parse("https://via.placeholder.com/150").open
+# file = URI.parse("https://via.placeholder.com/150").open
 bolognese = Recipe.new(
   name: "Spaghetti Bolognaise",
   detail: {"étape_1"=> "Dans une grande casserole, faites chauffer un peu d'huile d'olive à feu moyen.",
@@ -88,10 +88,10 @@ bolognese = Recipe.new(
     "étape_7"=>"Servez les spaghetti avec la sauce bolognaise chaude et un peu de parmesan râpé si désiré."},
   ingredients: ["Spaghetti", "viande hachée", "tomate", "oignons", "ail"],
 )
-bolognese.photo.attach(io: file, filename: "bolognese.jpg", content_type: "image/jpg")
+# bolognese.photo.attach(io: file, filename: "bolognese.jpg", content_type: "image/jpg")
 bolognese.save!
 
-file = URI.parse("https://via.placeholder.com/150").open
+# file = URI.parse("https://via.placeholder.com/150").open
 ratatouille = Recipe.new(
   name: "Ratatouille",
   detail: {"étape_1"=>"Dans une grande poêle ou une cocotte, faites chauffer un peu d'huile d'olive à feu moyen.",
@@ -103,7 +103,7 @@ ratatouille = Recipe.new(
     "étape_7"=>"Servez chaud, seul ou en accompagnement d'un plat de viande ou de riz."},
   ingredients: ["Tomates", "courgettes", "aubergines", "oignons", "poivrons"],
 )
-ratatouille.photo.attach(io: file, filename: "ratatouille.jpg", content_type: "image/jpg")
+# ratatouille.photo.attach(io: file, filename: "ratatouille.jpg", content_type: "image/jpg")
 ratatouille.save!
 
 puts "Adding recipes to favorites..."
