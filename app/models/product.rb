@@ -30,10 +30,4 @@ class Product < ApplicationRecord
 
 
 
-private
-
-def set_default_position
-  self.position = (Product.maximum(:position) || 0) + 1
-end
-
 end

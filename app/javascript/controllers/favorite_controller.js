@@ -10,6 +10,8 @@ export default class extends Controller {
   toggle(event) {
     event.preventDefault()
     const recipeId = this.element.dataset.recipeId
+    console.log(this.element.dataset.userRecipeId);
+
     const url = this.isFavorited ?
       `/user_recipes/${this.element.dataset.userRecipeId}` :
       '/user_recipes'
@@ -33,7 +35,7 @@ export default class extends Controller {
   updateHeartIcon() {
     const heartIcon = this.heartTarget
     heartIcon.src = this.isFavorited ?
-      '/assets/heart (1).png' :
-      '/assets/heart.png'
+      'https://res.cloudinary.com/damvtycj5/image/upload/v1734622735/y5mkv581e9py5qahrz3b.png' :
+      'https://res.cloudinary.com/damvtycj5/image/upload/v1734622598/q1qpxkedydun2rdvbuih.png'
   }
 }

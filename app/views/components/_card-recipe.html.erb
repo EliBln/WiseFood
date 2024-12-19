@@ -6,13 +6,19 @@
      data-user-recipe-id="<%= current_user.user_recipes.find_by(recipe_id: recipe.id)&.id %>">
 
   <button data-action="click->favorite#toggle" class="heart-button">
-    <%= image_tag current_user.user_recipes.exists?(recipe_id: recipe.id) ? 'heart (1).png' : 'heart.png',
+    <% if current_user.user_recipes.exists?(recipe_id: recipe.id) %>
+      <%= image_tag 'https://res.cloudinary.com/damvtycj5/image/upload/v1734622735/y5mkv581e9py5qahrz3b.png',
+                    class: 'heart-icon',
+                    data: { favorite_target: "heart" } %>
+    <% else %>
+      <%= image_tag 'https://res.cloudinary.com/damvtycj5/image/upload/v1734622598/q1qpxkedydun2rdvbuih.png',
                   class: 'heart-icon',
                   data: { favorite_target: "heart" } %>
+    <% end %>
   </button>
   <div class="header">
     <h1><%= recipe.name %></h1>
-    <%= cl_image_tag(recipe.photo.key, class: "card-img") if recipe.photo.attached? %>
+    <%# <%= cl_image_tag(recipe.photo.key, class: "card-img") if recipe.photo.attached? %>
   </div>
   <% unless controller_name == 'recipes' && action_name == 'show' %>
     <div class="ingredients">
