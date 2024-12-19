@@ -58,21 +58,26 @@ ul li::before {
 }
 
 .fridge-button {
-    position: absolute;
-    top: 1rem;
-    right: 0rem;
-    background: none;
-    border: none;
-    color: #333;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 65px;
-    // height: 60px;
-    &:hover {
-      transform: scale(1.1);
-    }
+  position: fixed; // Change de absolute à fixed pour rester au-dessus
+  top: 1rem;
+  right: 0rem;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 50px;
+  z-index: 1000; // Assure que le bouton reste au-dessus des cards
 
+  &:hover {
+    transform: scale(1.1);
+    color: #ff6b6b; // Ajoute un effet de couleur au survol
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
 .recipe-details {
