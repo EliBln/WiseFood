@@ -28,5 +28,4 @@ class Recipe < ApplicationRecord
       content_type: "image/png",
     )
   end
-end 
 end
