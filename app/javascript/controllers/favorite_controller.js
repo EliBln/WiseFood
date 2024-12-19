@@ -10,6 +10,8 @@ export default class extends Controller {
   toggle(event) {
     event.preventDefault()
     const recipeId = this.element.dataset.recipeId
+    console.log(this.element.dataset.userRecipeId);
+
     const url = this.isFavorited ?
       `/user_recipes/${this.element.dataset.userRecipeId}` :
       '/user_recipes'

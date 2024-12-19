@@ -6,9 +6,15 @@
      data-user-recipe-id="<%= current_user.user_recipes.find_by(recipe_id: recipe.id)&.id %>">
 
   <button data-action="click->favorite#toggle" class="heart-button">
-    <%= image_tag current_user.user_recipes.exists?(recipe_id: recipe.id) ? 'heart (1).png' : 'heart.png',
+    <% if current_user.user_recipes.exists?(recipe_id: recipe.id) %>
+      <%= image_tag 'heart (1).png',
+                    class: 'heart-icon',
+                    data: { favorite_target: "heart" } %>
+    <% else %>
+      <%= image_tag 'heart.png',
                   class: 'heart-icon',
                   data: { favorite_target: "heart" } %>
+    <% end %>
   </button>
   <div class="header">
     <h1><%= recipe.name %></h1>
