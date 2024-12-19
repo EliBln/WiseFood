@@ -1,7 +1,12 @@
-.recipes-container {
+.container-recipes {
+  width: 100%;
+  height: 100vh;
   padding: 20px;
   font-family: 'Itim', cursive;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
 
   .section-title {
     font-size: 28px;
@@ -13,7 +18,7 @@
 
 .recipes-scroll {
   display: flex;
-  overflow-x: auto;
+  // overflow-x: auto;
   gap: 20px;
   padding: 10px 0;
   -webkit-overflow-scrolling: touch;
@@ -43,13 +48,13 @@
 
   .recipe-image {
     width: 100%;
-    height: 180px;
+    height: 150px;
     overflow: hidden;
     padding: 10px;
 
     .card-img {
-      width: 100%;
-      height: 100%;
+      width: 90%;
+      height: 90%;
       object-fit: contain;
       transition: transform 0.3s ease;
 
@@ -191,5 +196,34 @@
     width: 100%;
     height: 100%;
     fill: #333;
+  }
+}
+
+.fav-button {
+  position: absolute;
+  top: 2rem;          // Réduit la distance du haut
+  right: 0.5rem;        // Réduit la distance de la droite
+  background: none;
+  border: none;
+  color: #ff4b4b;       // Couleur plus visible
+  font-size: 1.8rem;    // Taille légèrement augmentée
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 40px;          // Largeur plus adaptée
+  height: 40px;         // Hauteur définie
+  padding: 0;           // Retire le padding
+  display: flex;        // Utilise flexbox pour centrer
+  align-items: center;  // Centre verticalement
+  justify-content: center; // Centre horizontalement
+  z-index: 10;          // S'assure qu'il reste au-dessus
+
+  &:hover {
+    transform: scale(1.15);
+    color: #ff6b6b;     // Couleur plus vive au survol
+    filter: drop-shadow(0 2px 4px rgba(255, 75, 75, 0.3));
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 }

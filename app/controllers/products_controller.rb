@@ -68,8 +68,6 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user = current_user
 
-    # Limit product name to 18 characters and take only the first word
-    @product.name = @product.name.split.first.truncate(14, omission: "...")
 
     if @product.save
       redirect_to products_path, notice: "Produit créé avec succès!"
@@ -89,8 +87,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    # Limit product name to 18 characters and take only the first word
-    params[:product][:name] = params[:product][:name].split.first.truncate(14, omission: "...")
 
     if @product.update(product_params)
       redirect_to product_path(@product), notice: "Produit mis à jour avec succès!"
